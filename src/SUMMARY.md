@@ -8,7 +8,7 @@
 
   - [01-shell 编程](./shell/shell编程.md)
 
-  - [02-bash shell编程实践](./shell/bash shell编程实践.md)
+  - [02-bash shell编程实践](./shell/bash_shell编程实践.md)
 
   - [03- linux速查](./shell/linux速查.md)
 
