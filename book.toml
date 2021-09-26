@@ -5,3 +5,4 @@ multilingual = false
 src = "src"
 [output.html]
 mathjax-support = true
+[preprocessor.katex]
