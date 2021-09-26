@@ -31,12 +31,12 @@ jobs:
       #- run: mdbook build
       # --dest-dir ../book ./mdbook
       - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+        uses: peaceiris/actions-mdbook@v1.1.13
         with:
           mdbook-version: 'latest'
 
       - name: Setup mdbook-katex
-        uses: magicgh/mdbook-katex-action@v1
+        uses: magicgh/mdbook-katex-action@v1.1.0
         with:
           version: 'latest'
       - run: mdbook build
