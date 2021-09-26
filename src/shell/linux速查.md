@@ -2,9 +2,9 @@
 
 基于 2019 年圣诞节发布的 **Linux mint 19.3** 发行版，采用的 Shell 命令解释器版本为 **Bash Shell 5.0.3**，文章总结了笔者日常所经常使用到的 Linux 命令，在简明扼要的介绍相关命令与参数之后，还展示了各条命令的实际执行结果，便于读者更加直观的了解其功能与用途。限于文章篇幅以及命令行的使用频率，有关 Bash Shell 脚本编程部分的内容，将会新开一篇文章再行介绍。
 
-![img](G:\study\02-notebook\Zhao-Mingbin.github.io\src\shell\linux速查\media\logo.png)
+![img](linux%E9%80%9F%E6%9F%A5/media/logo-16326334485471.png)
 
-![img](G:\study\02-notebook\Zhao-Mingbin.github.io\src\shell\linux速查\media\vi-vim-cheat-sheet.gif)
+![img](linux%E9%80%9F%E6%9F%A5/media/vi-vim-cheat-sheet-16326334597992.gif)
 
 ## tree
 
