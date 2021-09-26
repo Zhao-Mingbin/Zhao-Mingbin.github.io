@@ -12,13 +12,13 @@
 
 LaTeX 环境中具有特殊含义的保留字符，不能直接使用，必须通过指定的语法实现：
 
-| 序号  |   符号    |   LaTeX   | 序号  |                 符号                  |                  LaTeX                  |
-| :---: | :-------: | :-------: | :---: | :-----------------------------------: | :-------------------------------------: |
-| **1** |  $ \# $   |   `\#`    | **6** |                 $\{$                  |                  `\{`                   |
-| **2** |   $\%$    |   `\%`    | **7** |                 $\}$                  |                  `\}`                   |
-| **3** | $^\wedge$ | `^\wedge` | **8** |                $\sim$                 |                 `\sim`                  |
-| **4** |   $\&$    |   `\&`    | **9** |             $\backslash$              |              `\backslash`               |
-| **5** |   $\_$    |   `\_`    |       | \\( \int x dx = \frac{x^2}{2} + C \\) | $\\( \int x dx = \frac{x^2}{2} + C \\)$ |
+| 序号  |   符号    |   LaTeX   | 序号  |                   符号                   |                  LaTeX                  |
+| :---: | :-------: | :-------: | :---: | :--------------------------------------: | :-------------------------------------: |
+| **1** |  $ \# $   |   `\#`    | **6** |                   $\{$                   |                  `\{`                   |
+| **2** |   $\%$    |   `\%`    | **7** |                   $\}$                   |                  `\}`                   |
+| **3** | $^\wedge$ | `^\wedge` | **8** |                  $\sim$                  |                 `\sim`                  |
+| **4** |   $\&$    |   `\&`    | **9** |               $\backslash$               |              `\backslash`               |
+| **5** |   $\_$    |   `\_`    |       | ` \\( \int x dx = \frac{x^2}{2} + C \\)` | $\\( \int x dx = \frac{x^2}{2} + C \\)$ |
 
 ## 希腊字母
 
@@ -391,16 +391,16 @@ LaTeX 环境中具有特殊含义的保留字符，不能直接使用，必须�
 
 |           类型           |                             符号                             | 代码                                                         |
 | :----------------------: | :----------------------------------------------------------: | :----------------------------------------------------------- |
-|         **上标**         |                       $a^2` `a^{x+3}$                        | `a^2` `a^{x+3}`                                              |
+|         **上标**         |                        $a^2 a^{x+3}$                         | `a^2` `a^{x+3}`                                              |
 |         **下标**         |                            $a_2$                             | `a_2`                                                        |
-|         **组合**         |               $10^{30} a^{2+2}` `a{i,j} b{f'}$               | `10^{30} a^{2+2}` `a{i,j} b{f'}`                             |
-|      **上下标混合**      |                      $x_2^3` `{x_2}^3$                       | `x_2^3` `{x_2}^3`                                            |
+|         **组合**         |                $10^{30} a^{2+2}a{i,j} b{f'}$                 | `10^{30} a^{2+2}` `a{i,j} b{f'}`                             |
+|      **上下标混合**      |                        $x_2^3{x_2}^3$                        | `x_2^3` `{x_2}^3`                                            |
 |      **上标的上标**      |                        $10^{10^{8}}$                         | `10^{10^{8}}`                                                |
-|       **混合标识**       |        $\sideset{1^2}{3^4}X_a^b` `{}_1^2!\Omega_3^4$         | `\sideset{1^2}{3^4}X_a^b` `{}_1^2!\Omega_3^4`                |
-|       **顶标底标**       | $\overset{\alpha}{\omega}` `\underset{\alpha}{\omega}` `\overset{\alpha}{\underset{\gamma}{\omega}}` `\stackrel{\alpha}{\omega}$ | `\overset{\alpha}{\omega}` `\underset{\alpha}{\omega}` `\overset{\alpha}{\underset{\gamma}{\omega}}` `\stackrel{\alpha}{\omega}` |
-|         **导数**         |       $x', y'', f', f''` `x^\prime, y^{\prime\prime}$        | `x', y'', f', f''` `x^\prime, y^{\prime\prime}`              |
+|       **混合标识**       |          $\sideset{1^2}{3^4}X_a^b{}_1^2!\Omega_3^4$          | `\sideset{1^2}{3^4}X_a^b` `{}_1^2!\Omega_3^4`                |
+|       **顶标底标**       | $\overset{\alpha}{\omega},\underset{\alpha}{\omega},\overset{\alpha}{\underset{\gamma}{\omega}},\stackrel{\alpha}{\omega}$ | `\overset{\alpha}{\omega}` `\underset{\alpha}{\omega}` `\overset{\alpha}{\underset{\gamma}{\omega}}` `\stackrel{\alpha}{\omega}` |
+|         **导数**         |        $x', y'', f', f'',x^\prime, y^{\prime\prime}$         | `x', y'', f', f''` `x^\prime, y^{\prime\prime}`              |
 |        **导数点**        |                     $\dot{x}, \ddot{x}$                      | `\dot{x}, \ddot{x}`                                          |
-|    **上下划线与向量**    | $\hat a \ \bar b \ \vec c` `\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f}` `\overline{g h i} \ \underline{j k l}$ | `\hat a \ \bar b \ \vec c` `\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f}` `\overline{g h i} \ \underline{j k l}` |
+|    **上下划线与向量**    | $\hat a \ \bar b \ \vec c,\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f},\overline{g h i} \ \underline{j k l}$ | `\hat a \ \bar b \ \vec c` `\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f}` `\overline{g h i} \ \underline{j k l}` |
 |         **弧度**         |                   $\overset{\frown} {AB}$                    | `\overset{\frown} {AB}`                                      |
 |         **箭头**         |    $A \xleftarrow{n+\mu-1} B \xrightarrow[T]{n\pm i-1} C$    | `A \xleftarrow{n+\mu-1} B \xrightarrow[T]{n\pm i-1} C`       |
 |        **大括号**        |            $\overbrace{ 1+2+\cdots+100 }^{5050}$             | `\overbrace{ 1+2+\cdots+100 }^{5050}`                        |
