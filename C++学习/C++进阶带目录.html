@@ -1,0 +1,1968 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C++进阶</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Homepage</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> shell 编程</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shell/shell编程.html"><strong aria-hidden="true">2.1.</strong> shell 编程</a></li><li class="chapter-item expanded "><a href="../shell/bash_shell编程实践.html"><strong aria-hidden="true">2.2.</strong> bash shell编程实践</a></li><li class="chapter-item expanded "><a href="../shell/linux速查.html"><strong aria-hidden="true">2.3.</strong> linux速查</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> C++学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../C++学习/C++基础带目录.html"><strong aria-hidden="true">3.1.</strong> C++基础</a></li><li class="chapter-item expanded "><a href="../C++学习/C++进阶带目录.html" class="active"><strong aria-hidden="true">3.2.</strong> C++进阶</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> CFD学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CFD学习/latex数学公式.html"><strong aria-hidden="true">4.1.</strong> latex数学公式</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><a name="index"><strong>Index</strong></a>
+<a href="#0">C++ 类 &amp; 对象</a><br />
+  <a href="#1">一、C++类的定义</a><br />
+  <a href="#2">二、C++定义对象（类似于python中的类的实例化）</a><br />
+   <a href="#3">访问数据成员</a><br />
+  <a href="#4">三、类 &amp; 对象详解</a><br />
+   <a href="#5">1、类的成员函数</a><br />
+   <a href="#6">2、类访问修饰符</a><br />
+   <a href="#7"># 3、构造函数与析构函数</a><br />
+   <a href="#8"># 3、C++拷贝构造函数</a><br />
+   <a href="#9"># 4、C++友元函数(相当于给开后门，给某些函数特定权利可以访问私有资源)</a><br />
+   <a href="#10"># 5、内联函数</a><br />
+   <a href="#11"># 6、C++ this指针</a><br />
+   <a href="#12"># 7、指向类的指针</a><br />
+   <a href="#13"># 8、C++类的静态成员</a><br />
+   <a href="#14"># 9、静态函数成员</a><br />
+  <a href="#15">四、C++继承</a><br />
+   <a href="#16">1、基类&amp;派生类</a><br />
+   <a href="#17">2、访问控制和继承</a><br />
+   <a href="#18">3、多继承</a><br />
+  <a href="#19">五、C++重载运算符和重载函数</a><br />
+   <a href="#20">1、函数的重载</a><br />
+   <a href="#21">2、运算符重载</a><br />
+  <a href="#22">六、重载运算符实例</a><br />
+   <a href="#23"><strong>1、一元运算符重载</strong>（也就是只有一个数字参与运算的情况）</a><br />
+   <a href="#24">2、二元运算符重载</a><br />
+   <a href="#25">3、关系运算符重载</a><br />
+   <a href="#26">4、输入/输出运算符重载</a><br />
+   <a href="#27">4、赋值运算符重载</a><br />
+   <a href="#28">5、函数调用运算符 () 重载</a><br />
+  <a href="#29">七、C++类的多态</a></p>
+<h1 id="a-name0c-类--对象aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name0c-类--对象aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="0">C++ 类 &amp; 对象</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h1>
+<p>C++ 在 C 语言的基础上增加了面向对象编程，C++ 支持面向对象程序设计。类是 C++ 的核心特性，通常被称为用户定义的类型。</p>
+<p>类用于指定对象的形式，它包含了数据表示法和用于处理数据的方法。类中的数据和方法称为类的成员。函数在一个类被称为类的成员。</p>
+<h3 id="a-name1一c类的定义aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name1一c类的定义aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="1">一、C++类的定义</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p>类定义是以关键字 <strong>class</strong> 开头，后跟类的名称。类的主体是包含在一对花括号中。类定义后必须跟着一个分号或一个声明列表。例如，我们使用关键字 <strong>class</strong> 定义 Box 数据类型，如下所示：</p>
+<pre><code class="language-C++">class Box
+{
+   public:
+      double length;   // Length of a box
+      double breadth;  // Breadth of a box
+      double height;   // Height of a box
+};
+</code></pre>
+<p>关键字 <strong>public</strong> 确定了类成员的访问属性。在类对象作用域内，公共成员在类的外部是可访问的。您也可以指定类的成员为 <strong>private</strong> 或 <strong>protected</strong>，这个后面会展开介绍。</p>
+<h3 id="a-name2二c定义对象类似于python中的类的实例化aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name2二c定义对象类似于python中的类的实例化aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="2">二、C++定义对象（类似于python中的类的实例化）</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p>类提供了对象的蓝图，所以基本上，对象是根据类来创建的。声明类的对象，就像声明基本类型的变量一样。下面的语句声明了类 Box 的两个对象：</p>
+<pre><code class="language-C++">Box Box1;          // 声明 Box1，类型为 Box
+Box Box2;          // 声明 Box2，类型为 Box
+</code></pre>
+<p>Box1和Box2都有属于他们各自的数据成员</p>
+<h4 id="a-name3访问数据成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name3访问数据成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="3">访问数据成员</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>类的对象的公共数据成员可以使用<strong>直接成员访问运算符 (.)</strong> 来访问。为了更好地理解这些概念，让我们尝试一下下面的实例：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Box
+{
+   public:
+      double length;   // 长度
+      double breadth;  // 宽度
+      double height;   // 高度
+};
+
+int main( )
+{
+   Box Box1;        // 声明 Box1，类型为 Box
+   Box Box2;        // 声明 Box2，类型为 Box
+   double volume = 0.0;     // 用于存储体积
+ 
+   // box 1 详述
+   Box1.height = 5.0; 
+   Box1.length = 6.0; 
+   Box1.breadth = 7.0;
+
+   // box 2 详述
+   Box2.height = 10.0;
+   Box2.length = 12.0;
+   Box2.breadth = 13.0;
+
+   // box 1 的体积
+   volume = Box1.height * Box1.length * Box1.breadth;
+   cout &lt;&lt; &quot;Box1 的体积：&quot; &lt;&lt; volume &lt;&lt;endl;
+
+   // box 2 的体积
+   volume = Box2.height * Box2.length * Box2.breadth;
+   cout &lt;&lt; &quot;Box2 的体积：&quot; &lt;&lt; volume &lt;&lt;endl;
+   return 0;
+}
+</code></pre>
+<p><strong>需要注意的是，私有的成员和受保护的成员不能使用直接成员访问运算符 (.) 来直接访问。</strong></p>
+<h3 id="a-name4三类--对象详解aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name4三类--对象详解aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="4">三、类 &amp; 对象详解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p>到目前为止，我们已经对 C++ 的类和对象有了基本的了解。下面的列表中还列出了其他一些 C++ 类和对象相关的概念，可以点击相应的链接进行学习。</p>
+<table><thead><tr><th align="left">概念</th><th align="left">描述</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-class-member-functions.html">类成员函数</a></td><td align="left">类的成员函数是指那些把定义和原型写在类定义内部的函数，就像类定义中的其他变量一样。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-class-access-modifiers.html">类访问修饰符</a></td><td align="left">类成员可以被定义为 public、private 或 protected。默认情况下是定义为 private。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-constructor-destructor.html">构造函数 &amp; 析构函数</a></td><td align="left">类的构造函数是一种特殊的函数，在创建一个新的对象时调用。类的析构函数也是一种特殊的函数，在删除所创建的对象时调用。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-copy-constructor.html">C++ 拷贝构造函数</a></td><td align="left">拷贝构造函数，是一种特殊的构造函数，它在创建对象时，是使用同一类中之前创建的对象来初始化新创建的对象。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-friend-functions.html">C++ 友元函数</a></td><td align="left"><strong>友元函数</strong>可以访问类的 private 和 protected 成员。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-inline-functions.html">C++ 内联函数</a></td><td align="left">通过内联函数，编译器试图在调用函数的地方扩展函数体中的代码。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-this-pointer.html">C++ 中的 this 指针</a></td><td align="left">每个对象都有一个特殊的指针 <strong>this</strong>，它指向对象本身。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-pointer-to-class.html">C++ 中指向类的指针</a></td><td align="left">指向类的指针方式如同指向结构的指针。实际上，类可以看成是一个带有函数的结构。</td></tr>
+<tr><td align="left"><a href="https://www.w3cschool.cn/cpp/cpp-static-members.html">C++ 类的静态成员</a></td><td align="left">类的数据成员和函数成员都可以被声明为静态的。</td></tr>
+</tbody></table>
+<h4 id="a-name51类的成员函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name51类的成员函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="5">1、类的成员函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>​	类的成员函数是指那些把定义和原型写在类定义内部的函数，就像类定义中的其他变量一样。类成员函数是类的一个成员，它可以操作类的任意对象，可以访问对象中的所有成员。</p>
+<p><strong>类的成员函数有两种定义方式：</strong></p>
+<ul>
+<li>
+<p>直接在定义类的时候在类的内部定义</p>
+<pre><code class="language-C++">class Box
+{
+   public:
+      double length;      // 长度
+      double breadth;     // 宽度
+      double height;      // 高度
+   
+      double getVolume(void)
+      {
+         return length * breadth * height;
+      }
+};
+</code></pre>
+</li>
+<li>
+<p>此外，成员函数也可以在类的外部定义，此时需要在定义类的时候在类的内部首先对函数进行声明，然后再用**::**（<strong>范围解析运算符</strong>）来定义，</p>
+<pre><code class="language-C++">class Box
+{
+   public:
+      double length;         // 长度
+      double breadth;        // 宽度
+      double height;         // 高度
+      double getVolume(void);// 返回体积
+};
+double Box::getVolume(void)
+{
+	return length *breadth*height;
+}
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>这里需要强调的是，范围解析运算符（::）需要跟在类名的后面</p>
+<p>而点运算符（.）则需要跟在对象名称后面</p>
+</blockquote>
+<pre><code class="language-C++">Box myBox;          // 创建一个对象
+
+myBox.getVolume();  // 调用该对象的成员函数
+</code></pre>
+<p>一个例子🌰：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Box
+{
+   public:
+      double length;         // 长度
+      double breadth;        // 宽度
+      double height;         // 高度
+
+      // 成员函数声明
+      double getVolume(void);
+      void setLength( double len );
+      void setBreadth( double bre );
+      void setHeight( double hei );
+};
+
+// 成员函数定义
+double Box::getVolume(void)
+{
+    return length * breadth * height;
+}
+
+void Box::setLength( double len )
+{
+    length = len;
+}
+
+void Box::setBreadth( double bre )
+{
+    breadth = bre;
+}
+
+void Box::setHeight( double hei )
+{
+    height = hei;
+}
+
+// 程序的主函数
+int main( )
+{
+   Box Box1;                // 声明 Box1，类型为 Box
+   Box Box2;                // 声明 Box2，类型为 Box
+   double volume = 0.0;     // 用于存储体积
+ 
+   // box 1 详述
+   Box1.setLength(6.0); 
+   Box1.setBreadth(7.0); 
+   Box1.setHeight(5.0);
+
+   // box 2 详述
+   Box2.setLength(12.0); 
+   Box2.setBreadth(13.0); 
+   Box2.setHeight(10.0);
+
+   // box 1 的体积
+   volume = Box1.getVolume();
+   cout &lt;&lt; &quot;Box1 的体积：&quot; &lt;&lt; volume &lt;&lt;endl;
+
+   // box 2 的体积
+   volume = Box2.getVolume();
+   cout &lt;&lt; &quot;Box2 的体积：&quot; &lt;&lt; volume &lt;&lt;endl;
+   return 0;
+}
+</code></pre>
+<h4 id="a-name62类访问修饰符aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name62类访问修饰符aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="6">2、类访问修饰符</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>​	数据隐藏是面向对象编程的一个重要特点，它防止函数直接访问类类型的内部成员。类成员的访问限制是通过在类主体内部对各个区域标记 <strong>public、private、protected</strong> 来指定的。关键字 public、private、protected 称为访问说明符。</p>
+<p>一个类可以有多个 public、protected 或 private 标记区域。<strong>每个标记区域在下一个标记区域开始之前或者在遇到类主体结束右括号之前都是有效的</strong>。<strong>成员和类的默认访问修饰符是 private。</strong></p>
+<pre><code class="language-C++">class Base{
+	public:
+	//public members go here
+	
+	protected:
+	//protected members go here
+	
+	private:
+	//private members go here
+};
+</code></pre>
+<ul>
+<li>
+<p>公有（public）成员</p>
+<p><strong>公有成员</strong>是在程序中类的外部是可访问的。您可以不使用任何成员函数来设置和获取公有变量的值，如下所示：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Line
+{
+   public:
+      double length;
+      void setLength( double len );
+      double getLength( void );
+};
+ 
+// 成员函数定义
+double Line::getLength(void)
+{
+    return length ;
+}
+ 
+void Line::setLength( double len )
+{
+    length = len;
+}
+ 
+// 程序的主函数
+int main( )
+{
+   Line line;
+ 
+   // 设置长度
+   line.setLength(6.0); 
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.getLength() &lt;&lt;endl;
+ 
+   // 不使用成员函数设置长度⭐️
+   line.length = 10.0; // OK: 因为 length 是公有的
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.length &lt;&lt;endl;
+   return 0;
+}
+//运行结果
+Length of line : 6
+Length of line : 10
+</code></pre>
+</li>
+<li>
+<p>私有（private)成员</p>
+<p><strong>私有</strong>成员变量或函数在类的外部是不可访问的，甚至是不可查看的。<strong>只有类和友元函数可以访问私有成员。</strong></p>
+<p>默认情况下，类的所有成员都是私有的。例如在下面的类中，<strong>width</strong> 是一个私有成员，这意味着，如果您没有使用任何访问修饰符，类的成员将被假定为私有成员：</p>
+<p>一个例子🌰：	</p>
+<pre><code class="language-C++">class Box
+{
+ double width;
+ public:
+    double length;
+    void setWidth( double wid );
+    double getWidth( void );
+};
+</code></pre>
+<p>实际操作中，我们一般会在私有区域定义数据，然后在公有区域定义相关函数，以便类可以在外部调用这些函数用来获取以及修改类的私有变量及函数。</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Box
+{
+   public:
+      double length;
+      void setWidth( double wid );
+      double getWidth( void );
+ 
+   private:
+      double width;
+};
+ 
+// 成员函数定义
+double Box::getWidth(void)
+{
+    return width ;
+}
+ 
+void Box::setWidth( double wid )
+{
+    width = wid;
+}
+ 
+// 程序的主函数
+int main( )
+{
+   Box box;
+ 
+   // 不使用成员函数设置长度
+   box.length = 10.0; // OK: 因为 length 是公有的
+   cout &lt;&lt; &quot;Length of box : &quot; &lt;&lt; box.length &lt;&lt;endl;
+ 
+   // 不使用成员函数设置宽度
+   // box.width = 10.0; // Error: 因为 width 是私有的
+   box.setWidth(10.0);  // 使用成员函数设置宽度
+   cout &lt;&lt; &quot;Width of box : &quot; &lt;&lt; box.getWidth() &lt;&lt;endl;
+ 
+   return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>保护（protected）成员</p>
+<p>保护成员变量与私有成员很相似，但有一点不同的是，保护成员的参数可以通过类的派生类（子类）访问，而私有成员的则不可以。</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Box
+{
+   protected:
+      double width;
+};
+ 
+class SmallBox:Box // SmallBox 是派生类
+{
+   public:
+      void setSmallWidth( double wid );
+      double getSmallWidth( void );
+};
+ 
+// 子类的成员函数
+double SmallBox::getSmallWidth(void)
+{
+    return width ;
+}
+ 
+void SmallBox::setSmallWidth( double wid )
+{
+    width = wid;
+}
+ 
+// 程序的主函数
+int main( )
+{
+   SmallBox box;
+ 
+   // 使用成员函数设置宽度
+   box.setSmallWidth(5.0);
+   cout &lt;&lt; &quot;Width of box : &quot;&lt;&lt; box.getSmallWidth() &lt;&lt; endl;
+ 
+   return 0;
+}
+</code></pre>
+<h4 id="a-name73构造函数与析构函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name73构造函数与析构函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="7">3、构造函数与析构函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p><strong>类的构造函数：<strong>类的</strong>构造函数</strong>是类的一种特殊的成员函数，它会在每次创建类的新对象时执行。构造函数的名称与类的名称是完全相同的，并且不会返回任何类型，也不会返回 void。构造函数可用于为某些成员变量设置初始值。✅（在这里可以类比与python中的init函数</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Line
+{
+   public:
+      void setLength( double len );
+      double getLength( void );
+      Line();  // 这是构造函数
+ 
+   private:
+      double length;
+};
+ 
+// 成员函数定义，包括构造函数
+Line::Line(void)
+{
+    cout &lt;&lt; &quot;Object is being created&quot; &lt;&lt; endl;
+}
+ 
+void Line::setLength( double len )
+{
+    length = len;
+}
+ 
+double Line::getLength( void )
+{
+    return length;
+}
+// 程序的主函数
+int main( )
+{
+   Line line;
+ 
+   // 设置长度
+   line.setLength(6.0); 
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.getLength() &lt;&lt;endl;
+ 
+   return 0;
+}
+//输出结果
+Object is being created
+Length of line : 6
+</code></pre>
+<p>**带有参数的构造参数：**默认的构造函数没有任何参数，但如果需要，构造函数也可以带有参数。这样在创建对象时就会给对象赋初始值，如下面的例子所示:（✅：就可以当成带有参数的init函数，在初始化的时候需要带参数使用）</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Line
+{
+   public:
+      void setLength( double len );
+      double getLength( void );
+      Line(double len);  // 这是构造函数
+ 
+   private:
+      double length;
+};
+ 
+// 成员函数定义，包括构造函数
+Line::Line( double len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+    length = len;
+}
+ 
+void Line::setLength( double len )
+{
+    length = len;
+}
+ 
+double Line::getLength( void )
+{
+    return length;
+}
+// 程序的主函数
+int main( )
+{
+   Line line(10.0);
+ 
+   // 获取默认设置的长度
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.getLength() &lt;&lt;endl;
+   // 再次设置长度
+   line.setLength(6.0); 
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.getLength() &lt;&lt;endl;
+ 
+   return 0;
+}
+
+</code></pre>
+<p><strong>使用初始化列表来初始化字段</strong></p>
+<p>假设有一个类 C，具有多个字段 X、Y、Z 等需要进行初始化，同理地，您可以使用上面的语法，只需要在不同的字段使用逗号进行分隔，如下所示：</p>
+<pre><code class="language-C++">C::C( double a, double b, double c): X(a), Y(b), Z(c)
+{
+  ....
+}
+</code></pre>
+<p>使用初始化列表来初始化字段：</p>
+<pre><code class="language-C++">Line::Line( double len): length(len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+}
+</code></pre>
+<p>上面的语法等同于如下语法：</p>
+<pre><code class="language-C++">Line::Line( double len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+    length = len;
+}
+</code></pre>
+<p><strong>类的析构函数</strong>（作用于类的构造函数刚好相反）：类的<strong>析构函数</strong>是类的一种特殊的成员函数，它会在<strong>每次删除所创建的对象时执</strong>行。析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号（~）作为前缀，它不会返回任何值，也不能带有任何参数。<strong>析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</strong></p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Line
+{
+   public:
+      void setLength( double len );
+      double getLength( void );
+      Line();   // 这是构造函数声明
+      ~Line();  // 这是析构函数声明
+ 
+   private:
+      double length;
+};
+ 
+// 成员函数定义，包括构造函数
+Line::Line(void)
+{
+    cout &lt;&lt; &quot;Object is being created&quot; &lt;&lt; endl;
+}
+Line::~Line(void)
+{
+    cout &lt;&lt; &quot;Object is being deleted&quot; &lt;&lt; endl;
+}
+ 
+void Line::setLength( double len )
+{
+    length = len;
+}
+ 
+double Line::getLength( void )
+{
+    return length;
+}
+// 程序的主函数
+int main( )
+{
+   Line line;
+ 
+   // 设置长度
+   line.setLength(6.0); 
+   cout &lt;&lt; &quot;Length of line : &quot; &lt;&lt; line.getLength() &lt;&lt;endl;
+ 
+   return 0;
+}
+//输出结果
+Object is being created
+Length of line : 6
+Object is being deleted
+
+</code></pre>
+<h4 id="a-name83c拷贝构造函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name83c拷贝构造函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="8">3、C++拷贝构造函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>问题？(O_O)?  什么是拷贝构造函数？？？？</p>
+<p>首先对于普通类型的对象来说，它们之间的复制是很简单的，例如：</p>
+<pre><code class="language-cpp">int a = 100;
+int b = a; 
+</code></pre>
+<p>类的乱七八糟看不懂，跳过回头填坑</p>
+<h4 id="a-name94c友元函数相当于给开后门给某些函数特定权利可以访问私有资源aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name94c友元函数相当于给开后门给某些函数特定权利可以访问私有资源aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="9">4、C++友元函数(相当于给开后门，给某些函数特定权利可以访问私有资源)</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>**类的友元函数是定义在类外部，但有权访问类的所有私有（private）成员和保护（protected）成员。**尽管友元函数的原型有在类的定义中出现过，但是友元函数并不是成员函数。</p>
+<p>友元可以是一个函数，该函数被称为友元函数；友元也可以是一个类，该类被称为友元类，在这种情况下，整个类及其所有成员都是友元。</p>
+<p>==如果要声明函数为一个类的友元，需要在类定义中该函数原型前使用关键字 <strong>friend</strong>，如下所示：==</p>
+<pre><code class="language-cpp">class Box
+{
+   double width;
+public:
+   double length;
+   friend void printWidth( Box box );
+   void setWidth( double wid );
+};
+//同样的，声明类ClassTwo的所有成员函数作为类ClassOne的友元，需要在类ClassOne的定义中放置如下声明：
+friend class ClassTwo;
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+class Box
+{
+   double width;
+public:
+   friend void printWidth( Box box );
+   void setWidth( double wid );
+};
+
+// 成员函数定义
+void Box::setWidth( double wid )
+{
+    width = wid;
+}
+
+// 请注意：printWidth() 不是任何类的成员函数
+void printWidth( Box box )
+{
+   /* 因为 printWidth() 是 Box 的友元，它可以直接访问该类的任何成员 */
+   cout &lt;&lt; &quot;Width of box : &quot; &lt;&lt; box.width &lt;&lt;endl;
+}
+ 
+// 程序的主函数
+int main( )
+{
+   Box box;
+ 
+   // 使用成员函数设置宽度
+   box.setWidth(10.0);
+   
+   // 使用友元函数输出宽度
+   printWidth( box );
+ 
+   return 0;
+}
+
+</code></pre>
+<h4 id="a-name105内联函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name105内联函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="10">5、内联函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>一般的函数有一个潜在的缺点：调用函数比求解等价表达式要慢得多。在大多数的机器上，调用函数都要做很多工作：调用前要先保存寄存器，并在返回时恢复，复制实参，程序还必须转向一个新位置执行。</p>
+<p>在C++中可以使用**内联函数，<strong>其目的是为了提高函数的执行效率</strong>，**通常与类一起使用。如果一个函数是内联的，那么在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
+<p>对内联函数进行任何修改，都需要重新编译函数的所有客户端，因为编译器需要重新更换一次所有的代码，否则将会继续使用旧的函数。</p>
+<p>如果想把一个函数定义为内联函数，则需要在函数名前面放置关键字 <strong>inline</strong>，在调用函数之前需要对函数进行定义。如果已定义的函数多于一行，编译器会忽略 inline 限定符。</p>
+<p>在类定义中的定义的函数都是内联函数，即使没有使用 <strong>inline</strong> 说明符。</p>
+<p>下面是使用内联函数来返回两个数中的最大值：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+inline int Max(int x, int y)
+{
+   return (x &gt; y)? x : y;
+}
+
+// 程序的主函数
+int main( )
+{
+
+   cout &lt;&lt; &quot;Max (20,10): &quot; &lt;&lt; Max(20,10) &lt;&lt; endl;
+   cout &lt;&lt; &quot;Max (0,200): &quot; &lt;&lt; Max(0,200) &lt;&lt; endl;
+   cout &lt;&lt; &quot;Max (100,1010): &quot; &lt;&lt; Max(100,1010) &lt;&lt; endl;
+   return 0;
+}
+//输出结果
+Max (20,10): 20
+Max (0,200): 200
+Max (100,1010): 1010
+</code></pre>
+<p>有了内联函数，就能像调用一个函数那样方便地重复使用一段代码，而不需要付出执行函数调用的额外开销。很显然，使用内联函数会是最终可执行程序的体积增加。以空间换取时间，或消耗时间来增加空间，这是计算机学科中常用的方法。</p>
+<p>内联函数中的代码应该只是很简单、执行很快的几条语句。如果一个函数较为复杂，它执行的时间可能上万倍于函数调用的额外开销，那么将其作为内联函数处理的结果是付出让代码体积增加不少的代价，却只使速度提高了万分之一，这显然是不划算的，而且有些函数即使声明为内联的也不一定会被编译器内联。</p>
+<p>有时函数看上去很简单，例如只有一个包含一两条语句的循环，但该循环的执行次数可能很多，要消耗大量时间，那么这种情况也不适合将其实现为内联函数。</p>
+<p>另外需要注意的是，调用内联函数的语句前必须已经出现内联函数的定义（即整个函数体），而不能只出现内联函数的声明。</p>
+<p>✅：<strong>也就是说内敛函数相当于是对传统函数的改造，在定义时需要在其开头位置添加inline符号，该类函数在执行过程中相当于不需要像传统函数使用时老需要寄存调用，直接将代码复制到各个需要调用的地方</strong></p>
+<h4 id="a-name116c-this指针aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name116c-this指针aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="11">6、C++ this指针</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>在 C++ 中，每一个对象都能通过 <strong>this</strong> 指针来访问自己的地址。<strong>this</strong> 指针是所有成员函数的隐含参数。因此，在成员函数内部，它可以用来指向调用对象。</p>
+<p>友元函数没有 <strong>this</strong> 指针，因为友元不是类的成员。只有成员函数才有 <strong>this</strong> 指针。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+class Box
+{
+   public:
+      // 构造函数定义
+      Box(double l=2.0, double b=2.0, double h=2.0)
+      {
+         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
+         length = l;
+         breadth = b;
+         height = h;
+      }
+      double Volume()
+      {
+         return length * breadth * height;
+      }
+      int compare(Box box)
+      {
+         return this-&gt;Volume() &gt; box.Volume();//这个地方的this就是指向的Box这个类的本身
+      }
+   private:
+      double length;     // Length of a box
+      double breadth;    // Breadth of a box
+      double height;     // Height of a box
+};
+
+int main(void)
+{
+   Box Box1(3.3, 1.2, 1.5);    // Declare box1
+   Box Box2(8.5, 6.0, 2.0);    // Declare box2
+
+   if(Box1.compare(Box2))
+   {
+      cout &lt;&lt; &quot;Box2 is smaller than Box1&quot; &lt;&lt;endl;
+   }
+   else
+   {
+      cout &lt;&lt; &quot;Box2 is equal to or larger than Box1&quot; &lt;&lt;endl;
+   }
+   return 0;
+}
+//输出结果
+Constructor called.
+Constructor called.
+Box2 is equal to or larger than Box1
+</code></pre>
+<h4 id="a-name127指向类的指针aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name127指向类的指针aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="12">7、指向类的指针</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>一个指向 C++ 类的指针与指向结构的指针类似，访问指向类的指针的成员，需要使用成员访问运算符 <strong>-&gt;</strong>，就像访问指向结构的指针一样。与所有的指针一样，您必须在使用指针之前，对指针进行初始化。</p>
+<pre><code class="language-CPP">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+class Box
+{
+   public:
+      // 构造函数定义
+      Box(double l=2.0, double b=2.0, double h=2.0)
+      {
+         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
+         length = l;
+         breadth = b;
+         height = h;
+      }
+      double Volume()
+      {
+         return length * breadth * height;
+      }
+   private:
+      double length;     // Length of a box
+      double breadth;    // Breadth of a box
+      double height;     // Height of a box
+};
+
+int main(void)
+{
+   Box Box1(3.3, 1.2, 1.5);    // Declare box1
+   Box Box2(8.5, 6.0, 2.0);    // Declare box2
+   Box *ptrBox;                // Declare pointer to a class.
+
+   // 保存第一个对象的地址
+   ptrBox = &amp;Box1;
+
+   // 现在尝试使用成员访问运算符来访问成员
+   cout &lt;&lt; &quot;Volume of Box1: &quot; &lt;&lt; ptrBox-&gt;Volume() &lt;&lt; endl;
+
+   // 保存第二个对象的地址
+   ptrBox = &amp;Box2;
+
+   // 现在尝试使用成员访问运算符来访问成员
+   cout &lt;&lt; &quot;Volume of Box2: &quot; &lt;&lt; ptrBox-&gt;Volume() &lt;&lt; endl;
+  
+   return 0;
+}
+//输出结果
+Constructor called.
+Constructor called.
+Volume of Box1: 5.94
+Volume of Box2: 102
+</code></pre>
+<h4 id="a-name138c类的静态成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name138c类的静态成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="13">8、C++类的静态成员</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>我们可以使用 <strong>static</strong> 关键字来把类成员定义为静态的。当我们声明类的成员为静态时，这意味着无论创建多少个类的对象，静态成员都只有一个副本。</p>
+<p><strong>静态成员在类的所有对象中是共享的。如果不存在其他的初始化语句，在创建第一个对象时，所有的静态数据都会被初始化为零</strong>。我们不能把静态成员放置在类的定义中，但是可以在类的外部通过使用==范围解析运算符 <strong>::</strong> 来重新声明静态变量==从而对它进行初始化，如下面的实例所示。</p>
+<p>下面的实例有助于更好地理解静态数据成员的概念：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+class Box
+{
+   public:
+      static int objectCount;
+      // 构造函数定义
+      Box(double l=2.0, double b=2.0, double h=2.0)
+      {
+         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
+         length = l;
+         breadth = b;
+         height = h;
+         // 每次创建对象时增加 1
+         objectCount++;
+      }
+      double Volume()
+      {
+         return length * breadth * height;
+      }
+   private:
+      double length;     // 长度
+      double breadth;    // 宽度
+      double height;     // 高度
+};
+
+// 初始化类 Box 的静态成员
+int Box::objectCount = 0;
+‼️‼️ //在访问这种静态参数时，这里的访问符号不再是. 而是变成了::
+int main(void)
+{
+   Box Box1(3.3, 1.2, 1.5);    // 声明 box1
+   Box Box2(8.5, 6.0, 2.0);    // 声明 box2
+
+   // 输出对象的总数
+   cout &lt;&lt; &quot;Total objects: &quot; &lt;&lt; Box::objectCount &lt;&lt; endl;
+
+   return 0;
+}
+//输出结果
+Constructor called.
+Constructor called.
+Total objects: 2
+//这里static的意思就是不管怎么搞，怎么实例化，大家各个实例之间都是用同一个参数，也就是说他不属于任何一个特定的个体实例化，而是级别更高直属于类本身的，所以访问符号也从.变为了::
+</code></pre>
+<h4 id="a-name149静态函数成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name149静态函数成员aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="14">9、静态函数成员</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>如果把函数成员声明为静态的，就可以把函数与类的任何特定对象独立开来。静态成员函数即使在类对象不存在的情况下也能被调用，<strong>静态函数</strong>只要使用类名加范围解析运算符 <strong>::</strong> 就可以访问。</p>
+<p>静态成员函数只能访问静态数据成员，不能访问其他静态成员函数和类外部的其他函数。</p>
+<p>静态成员函数有一个类范围，他们不能访问类的 this 指针。您可以使用静态成员函数来判断类的某些对象是否已被创建。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+class Box
+{
+   public:
+      static int objectCount;
+      // 构造函数定义
+      Box(double l=2.0, double b=2.0, double h=2.0)
+      {
+         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
+         length = l;
+         breadth = b;
+         height = h;
+         // 每次创建对象时增加 1
+         objectCount++;
+      }
+      double Volume()
+      {
+         return length * breadth * height;
+      }
+      static int getCount()
+      {
+         return objectCount;
+      }
+   private:
+      double length;     // 长度
+      double breadth;    // 宽度
+      double height;     // 高度
+};
+
+// 初始化类 Box 的静态成员
+int Box::objectCount = 0;
+
+int main(void)
+{
+  
+  
+  ‼️‼️ //注意，这种静态参数（变量及函数）的调用需要使用::而不是跟以往一样使用的是单点号，这里需要注意
+    
+    
+   // 在创建对象之前输出对象的总数
+   cout &lt;&lt; &quot;Inital Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
+
+   Box Box1(3.3, 1.2, 1.5);    // 声明 box1
+   Box Box2(8.5, 6.0, 2.0);    // 声明 box2
+
+   // 在创建对象之后输出对象的总数
+   cout &lt;&lt; &quot;Final Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
+
+   return 0;
+}
+//输出结果
+Inital Stage Count: 0
+Constructor called.
+Constructor called.
+Final Stage Count: 2
+</code></pre>
+</li>
+</ul>
+<h3 id="a-name15四c继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name15四c继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="15">四、C++继承</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p>面向对象程序设计中最重要的一个概念是继承。继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。这样做，也达到了重用代码功能和提高执行时间的效果</p>
+<p>当创建一个类时，您不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为<strong>基类</strong>，新建的类称为<strong>派生类</strong>。</p>
+<h4 id="a-name161基类派生类aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name161基类派生类aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="16">1、基类&amp;派生类</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>一个类可以派生自多个类，这意味着，它可以从多个基类继承数据和函数。定义一个派生类，我们使用一个类派生列表来指定基类。类派生列表以一个或多个基类命名，形式如下：</p>
+<pre><code class="language-C++">class derived-class: access-specifier base-class
+</code></pre>
+<p>其中，访问修饰符 access-specifier 是 <strong>public、protected</strong> 或 <strong>private</strong> 其中的一个，base-class 是之前定义过的某个类的名称。如果未使用访问修饰符 access-specifier，则默认为 private。</p>
+<p>假设有一个基类 <strong>Shape</strong>，<strong>Rectangle</strong> 是它的派生类，如下所示：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+// 基类
+class Shape 
+{
+   public:
+      void setWidth(int w)
+      {
+         width = w;
+      }
+      void setHeight(int h)
+      {
+         height = h;
+      }
+   protected:
+      int width;
+      int height;
+};
+
+// 派生类
+class Rectangle: public Shape
+{
+   public:
+      int getArea()
+      { 
+         return (width * height); 
+      }
+};
+
+int main(void)
+{
+   Rectangle Rect;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+
+   // 输出对象的面积
+   cout &lt;&lt; &quot;Total area: &quot; &lt;&lt; Rect.getArea() &lt;&lt; endl;
+
+   return 0;
+} 
+//输出结果
+Total area: 35
+</code></pre>
+<h4 id="a-name172访问控制和继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name172访问控制和继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="17">2、访问控制和继承</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>派生类可以访问基类中所有的非私有成员。因此基类成员如果不想被派生类的成员函数访问，则应在基类中声明为 private。</p>
+<p>我们可以根据访问权限总结出不同的访问类型，如下所示：</p>
+<table><thead><tr><th align="left">访问</th><th align="left">public</th><th align="left">protected</th><th align="left">private</th></tr></thead><tbody>
+<tr><td align="left">同一个类</td><td align="left">yes</td><td align="left">yes</td><td align="left">yes</td></tr>
+<tr><td align="left">派生类</td><td align="left">yes</td><td align="left">yes</td><td align="left">no</td></tr>
+<tr><td align="left">外部的类</td><td align="left">yes</td><td align="left">no</td><td align="left">no</td></tr>
+</tbody></table>
+<p>当一个类派生自基类，该基类可以被继承为 <strong>public、protected</strong> 或 <strong>private</strong> 几种类型。继承类型是通过上面讲解的访问修饰符 access-specifier 来指定的。</p>
+<p>我们几乎不使用 <strong>protected</strong> 或 <strong>private</strong> 继承，通常使用 <strong>public</strong> 继承。当使用不同类型的继承时，遵循以下几个规则：</p>
+<ul>
+<li><strong>公有继承（public）：<strong>当一个类派生自</strong>公有</strong>基类时，基类的<strong>公有</strong>成员也是派生类的<strong>公有</strong>成员，基类的<strong>保护</strong>成员也是派生类的<strong>保护</strong>成员，基类的<strong>私有</strong>成员不能直接被派生类访问，但是可以通过调用基类的<strong>公有</strong>和<strong>保护</strong>成员来访问。</li>
+<li><strong>保护继承（protected）：</strong> 当一个类派生自<strong>保护</strong>基类时，基类的<strong>公有</strong>和<strong>保护</strong>成员将成为派生类的<strong>保护</strong>成员。</li>
+<li><strong>私有继承（private）：<strong>当一个类派生自</strong>私有</strong>基类时，基类的<strong>公有</strong>和<strong>保护</strong>成员将成为派生类的<strong>私有</strong>成员。</li>
+</ul>
+<blockquote>
+<p>一个派生类继承了所有的基类方法，但下列情况除外：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>基类的构造函数、析构函数和拷贝构造函数。</li>
+<li>基类的重载运算符。</li>
+<li>基类的友元函数。</li>
+</ul>
+</blockquote>
+<h4 id="a-name183多继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name183多继承aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="18">3、多继承</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>多继承即一个子类可以有多个父类，它继承了多个父类的特性。</p>
+<p>C++ 类可以从多个类继承成员，语法如下：</p>
+<pre><code>class &lt;派生类名&gt;: &lt;继承方式1&gt; &lt;基类名1&gt;, &lt;继承方式2&gt; &lt;基类名2&gt;
+{
+……
+}；
+</code></pre>
+<p>其中，访问修饰符 access 是 <strong>public、protected</strong> 或 <strong>private</strong> 其中的一个，用来修饰每个基类，各个基类之间用逗号分隔，如上所示。现在让我们一起看看下面的实例：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+ 
+using namespace std;
+
+// 基类 Shape
+class Shape 
+{
+   public:
+      void setWidth(int w)
+      {
+         width = w;
+      }
+      void setHeight(int h)
+      {
+         height = h;
+      }
+   protected:
+      int width;
+      int height;
+};
+
+// 基类 PaintCost
+class PaintCost 
+{
+   public:
+      int getCost(int area)
+      {
+         return area * 70;
+      }
+};
+
+// 派生类
+class Rectangle: public Shape, public PaintCost
+{
+   public:
+      int getArea()
+      { 
+         return (width * height); 
+      }
+};
+
+int main(void)
+{
+   Rectangle Rect;
+   int area;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+
+   area = Rect.getArea();
+   
+   // 输出对象的面积
+   cout &lt;&lt; &quot;Total area: &quot; &lt;&lt; Rect.getArea() &lt;&lt; endl;
+
+   // 输出总花费
+   cout &lt;&lt; &quot;Total paint cost: $&quot; &lt;&lt; Rect.getCost(area) &lt;&lt; endl;
+
+   return 0;
+}
+</code></pre>
+<h3 id="a-name19五c重载运算符和重载函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name19五c重载运算符和重载函数aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="19">五、C++重载运算符和重载函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p>==C++ 允许在同一作用域中的某个<strong>函数</strong>和<strong>运算符</strong>指定多个定义==，分别称为<strong>函数重载</strong>和<strong>运算符重载</strong>。</p>
+<p>==重载声明是指一个与之前已经在该作用域内声明过的函数或方法具有相同名称的声明，但是它们的参数列表和定义（实现）不相同。==</p>
+<p>当您调用一个<strong>重载函数</strong>或<strong>重载运算符</strong>时，编译器通过把您所使用的参数类型与定义中的参数类型进行比较，决定选用最合适的定义。选择最合适的重载函数或重载运算符的过程，称为<strong>重载决策</strong>。</p>
+<h4 id="a-name201函数的重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name201函数的重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="20">1、函数的重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>在同一个作用域内，可以声明几个功能类似的同名函数，但是这些同名函数的形式参数（指参数的个数、类型或者顺序）必须不同。您不能仅通过返回类型的不同来重载函数。</p>
+<p>下面的实例中，同名函数 <strong>print()</strong> 被用于输出不同的数据类型：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class printData 
+{
+   public:
+      void print(int i) {
+        cout &lt;&lt; &quot;Printing int: &quot; &lt;&lt; i &lt;&lt; endl;
+      }
+
+      void print(double  f) {
+        cout &lt;&lt; &quot;Printing float: &quot; &lt;&lt; f &lt;&lt; endl;
+      }
+
+      void print(char* c) {
+        cout &lt;&lt; &quot;Printing character: &quot; &lt;&lt; c &lt;&lt; endl;
+      }
+};
+
+int main(void)
+{
+   printData pd;
+ 
+   // Call print to print integer
+   pd.print(5);
+   // Call print to print float
+   pd.print(500.263);
+   // Call print to print character
+   pd.print(&quot;Hello C++&quot;);
+ 
+   return 0;
+}
+//输出结果 ：就是定义了一堆重名函数，但是他们的输入是不一样的，再以此来区分他们之间的区别
+Printing int: 5
+Printing float: 500.263
+Printing character: Hello C++
+</code></pre>
+<h4 id="a-name212运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name212运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="21">2、运算符重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p><strong>重载的运算符是带有特殊名称的函数</strong>，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个返回类型和一个参数列表。</p>
+<pre><code class="language-cpp">//作为成员函数时的定义方法
+Box operator+(const Box&amp;);
+</code></pre>
+<p>==声明加法运算符用于把两个 Box 对象相加，返回最终的 Box 对象。大多数的重载运算符可被定义为普通的非成员函数或者被定义为类成员函数。如果我们定义上面的函数为类的非成员函数，那么我们需要为每次操作传递两个参数，如下所示==：</p>
+<p>补充:⁉️: <strong>区分类的成员函数与类的非成员函数</strong> 举一个例子🌰：</p>
+<pre><code class="language-cpp">////////////原始的类//////////////
+class People{
+        public:
+            ...
+            void Getup( );
+            void Washing( );
+            void eating( );
+            ...
+        }
+////////////成员函数//////////////
+class People
+{
+  			public:
+  			……
+          void morningAction(){ //在这里，morningAction函数也就是成员函数
+          	void Getup( );
+            void Washing( );
+            void eating( );  
+        }
+        		
+}
+////////////非成员函数//////////////
+void moringAction(People&amp; p)//在这里，将函数定义在类的外部，将类作为输入参数并操作类中的函数及变量的方法，此时这个函数被称作非成员函数
+        {
+                p.Getup( );
+                p.Washing( );
+                p.eating( );
+        }
+</code></pre>
+<p>如果我们定义上面的函数为类的非成员函数，那么我们需要为每次操作传递两个参数，如下所示：</p>
+<pre><code class="language-cpp">//作为非成员函数时定义重载符的语句
+Box operator+(const Box&amp;, const Box&amp;);
+</code></pre>
+<p>下面的实例使用成员函数演示了运算符重载的概念。在这里，对象作为参数进行传递，对象的属性使用 <strong>this</strong> 运算符进行访问，</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Box
+{
+   public:
+
+      double getVolume(void)
+      {
+         return length * breadth * height;
+      }
+      void setLength( double len )
+      {
+          length = len;
+      }
+
+      void setBreadth( double bre )
+      {
+          breadth = bre;
+      }
+
+      void setHeight( double hei )
+      {
+          height = hei;
+      }
+      // 重载 + 运算符，用于把两个 Box 对象相加
+      Box operator+(const Box&amp; b) //相当于检测到有BOX类跟+连用时，就会自动重载
+      {
+         Box box;
+         box.length = this-&gt;length + b.length;
+         box.breadth = this-&gt;breadth + b.breadth;
+         box.height = this-&gt;height + b.height;
+         return box;
+      }
+   private:
+      double length;      // 长度
+      double breadth;     // 宽度
+      double height;      // 高度
+};
+// 程序的主函数
+int main( )
+{
+   Box Box1;                // 声明 Box1，类型为 Box
+   Box Box2;                // 声明 Box2，类型为 Box
+   Box Box3;                // 声明 Box3，类型为 Box
+   double volume = 0.0;     // 把体积存储在该变量中
+ 
+   // Box1 详述
+   Box1.setLength(6.0); 
+   Box1.setBreadth(7.0); 
+   Box1.setHeight(5.0);
+ 
+   // Box2 详述
+   Box2.setLength(12.0); 
+   Box2.setBreadth(13.0); 
+   Box2.setHeight(10.0);
+ 
+   // Box1 的体积
+   volume = Box1.getVolume();
+   cout &lt;&lt; &quot;Volume of Box1 : &quot; &lt;&lt; volume &lt;&lt;endl;
+ 
+   // Box2 的体积
+   volume = Box2.getVolume();
+   cout &lt;&lt; &quot;Volume of Box2 : &quot; &lt;&lt; volume &lt;&lt;endl;
+
+   // 把两个对象相加，得到 Box3
+   Box3 = Box1 + Box2; //此处自动重载加号运算符
+
+   // Box3 的体积
+   volume = Box3.getVolume();
+   cout &lt;&lt; &quot;Volume of Box3 : &quot; &lt;&lt; volume &lt;&lt;endl;
+
+   return 0;
+}
+//输出结果
+Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+</code></pre>
+<p>下面是可重载的运算符列表：</p>
+<table><thead><tr><th>+</th><th>-</th><th>*</th><th>/</th><th>%</th><th>^</th></tr></thead><tbody>
+<tr><td>&amp;</td><td>|</td><td>~</td><td>!</td><td>,</td><td>=</td></tr>
+<tr><td>&lt;</td><td>&gt;</td><td>&lt;=</td><td>&gt;=</td><td>++</td><td>--</td></tr>
+<tr><td>&lt;&lt;</td><td>&gt;&gt;</td><td>==</td><td>!=</td><td>&amp;&amp;</td><td>||</td></tr>
+<tr><td>+=</td><td>-=</td><td>/=</td><td>%=</td><td>^=</td><td>&amp;=</td></tr>
+<tr><td>|=</td><td>*=</td><td>&lt;&lt;=</td><td>&gt;&gt;=</td><td>[]</td><td>()</td></tr>
+<tr><td>-&gt;</td><td>-&gt;*</td><td>new</td><td>new []</td><td>delete</td><td>delete []</td></tr>
+</tbody></table>
+<p>下面是不可重载的运算符列表：</p>
+<table><thead><tr><th>::</th><th>.*</th><th>.</th><th>?:</th></tr></thead><tbody>
+</tbody></table>
+<h3 id="a-name22六重载运算符实例aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name22六重载运算符实例aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="22">六、重载运算符实例</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<h4 id="a-name231一元运算符重载也就是只有一个数字参与运算的情况aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name231一元运算符重载也就是只有一个数字参与运算的情况aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="23"><strong>1、一元运算符重载</strong>（也就是只有一个数字参与运算的情况）</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>一元运算符只对一个操作数进行操作，下面是一元运算符的实例：</p>
+<ul>
+<li><a href="https://www.w3cschool.cn/cpp/increment-decrement-operators-overloading.html">递增运算符（ ++ ）和递减运算符（ -- ）</a></li>
+<li>一元减运算符，即负号（ - ）</li>
+<li>逻辑非运算符（ ! ）</li>
+</ul>
+<p>一元运算符通常出现在它们所操作的对象的左边，比如 !obj、-obj 和 ++obj，但有时它们也可以作为后缀，比如 obj++ 或 obj--。</p>
+<p>例子1：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i){
+         feet = f;
+         inches = i;
+      }
+      // 显示距离的方法
+      void displayDistance()
+      {
+         cout &lt;&lt; &quot;F: &quot; &lt;&lt; feet &lt;&lt; &quot; I:&quot; &lt;&lt; inches &lt;&lt;endl;
+      }
+      // 重载负运算符（ - ）
+      Distance operator- ()//因为这里是前缀一元运算符，不用其他参数，所以这里的参数输入位置可以是空的
+      {
+         feet = -feet;
+         inches = -inches;
+         return Distance(feet, inches);//构造函数
+      }
+};
+int main()
+{
+   Distance D1(11, 10), D2(-5, 11);
+ 
+   -D1;                     // 取相反数
+   D1.displayDistance();    // 距离 D1
+
+   -D2;                     // 取相反数
+   D2.displayDistance();    // 距离 D2
+
+   return 0;
+}
+//返回结果
+F: -11 I:-10
+F: 5 I:-11
+</code></pre>
+<p>例子2：⭐️很重要，区分运算符是前缀还是后缀的</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Time
+{
+   private:
+      int hours;             // 0 到 23
+      int minutes;           // 0 到 59
+   public:
+      // 所需的构造函数
+      Time(){
+         hours = 0;
+         minutes = 0;
+      }
+      Time(int h, int m){
+         hours = h;
+         minutes = m;
+      }
+      // 显示时间的方法
+      void displayTime()
+      {
+         cout &lt;&lt; &quot;H: &quot; &lt;&lt; hours &lt;&lt; &quot; M:&quot; &lt;&lt; minutes &lt;&lt;endl;
+      }
+      // 重载前缀递增运算符（ ++ ）
+      Time operator++ ()  
+      {
+         ++minutes;          // 对象加 1
+         if(minutes &gt;= 60)  
+         {
+            ++hours;
+            minutes -= 60;
+         }
+         return Time(hours, minutes); //这里返回的相当于是构造函数，将对象重新初始化了
+      }
+      // 重载后缀递增运算符（ ++ ）
+      Time operator++( int )         
+      {
+         // 保存原始值
+         Time T(hours, minutes);
+         // 对象加 1
+         ++minutes;                    
+         if(minutes &gt;= 60)
+         {
+            ++hours;
+            minutes -= 60;
+         }
+         // 返回旧的原始值
+         return T; 
+      }
+};
+int main()
+{
+   Time T1(11, 59), T2(10,40);
+ 
+   ++T1;                    // T1 加 1
+   T1.displayTime();        // 显示 T1
+   ++T1;                    // T1 再加 1
+   T1.displayTime();        // 显示 T1
+ 
+   T2++;                    // T2 加 1
+   T2.displayTime();        // 显示 T2
+   T2++;                    // T2 再加 1
+   T2.displayTime();        // 显示 T2
+   return 0;
+}
+//输出结果
+H: 12 M:0
+H: 12 M:1
+H: 10 M:41
+H: 10 M:42
+</code></pre>
+<h4 id="a-name242二元运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name242二元运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="24">2、二元运算符重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>二元运算符需要两个参数，下面是二元运算符的实例。我们平常使用的加运算符（ + ）、减运算符（ - ）、乘运算符（ * ）和除运算符（ / ）都属于二元运算符。就像加(+)运算符。</p>
+<p>下面的实例演示了如何重载加运算符（ + ）。类似地，您也可以尝试重载减运算符（ - ）和除运算符（ / ）。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Box
+{
+   double length;      // 长度
+   double breadth;     // 宽度
+   double height;      // 高度
+public:
+ 
+   double getVolume(void)
+   {
+      return length * breadth * height;
+   }
+   void setLength( double len )
+   {
+       length = len;
+   }
+ 
+   void setBreadth( double bre )
+   {
+       breadth = bre;
+   }
+ 
+   void setHeight( double hei )
+   {
+       height = hei;
+   }
+   // 重载 + 运算符，用于把两个 Box 对象相加
+   Box operator+(const Box&amp; b)
+   {
+      Box box;
+      box.length = this-&gt;length + b.length;
+      box.breadth = this-&gt;breadth + b.breadth;
+      box.height = this-&gt;height + b.height;
+      return box;
+   }
+};
+// 程序的主函数
+int main( )
+{
+   Box Box1;                // 声明 Box1，类型为 Box
+   Box Box2;                // 声明 Box2，类型为 Box
+   Box Box3;                // 声明 Box3，类型为 Box
+   double volume = 0.0;     // 把体积存储在该变量中
+ 
+   // Box1 详述
+   Box1.setLength(6.0); 
+   Box1.setBreadth(7.0); 
+   Box1.setHeight(5.0);
+ 
+   // Box2 详述
+   Box2.setLength(12.0); 
+   Box2.setBreadth(13.0); 
+   Box2.setHeight(10.0);
+ 
+   // Box1 的体积
+   volume = Box1.getVolume();
+   cout &lt;&lt; &quot;Volume of Box1 : &quot; &lt;&lt; volume &lt;&lt;endl;
+ 
+   // Box2 的体积
+   volume = Box2.getVolume();
+   cout &lt;&lt; &quot;Volume of Box2 : &quot; &lt;&lt; volume &lt;&lt;endl;
+ 
+   // 把两个对象相加，得到 Box3
+   Box3 = Box1 + Box2;
+ 
+   // Box3 的体积
+   volume = Box3.getVolume();
+   cout &lt;&lt; &quot;Volume of Box3 : &quot; &lt;&lt; volume &lt;&lt;endl;
+ 
+   return 0;
+}
+//输出结果
+Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+</code></pre>
+<h4 id="a-name253关系运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name253关系运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="25">3、关系运算符重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>C++ 语言支持各种关系运算符（ &lt; 、 &gt; 、 &lt;= 、 &gt;= 、 == 等等），它们可用于比较 C++ 内置的数据类型。</p>
+<p>您可以重载任何一个关系运算符，重载后的关系运算符可用于比较类的对象。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i){
+         feet = f;
+         inches = i;
+      }
+      // 显示距离的方法
+      void displayDistance()
+      {
+         cout &lt;&lt; &quot;F: &quot; &lt;&lt; feet &lt;&lt; &quot; I:&quot; &lt;&lt; inches &lt;&lt;endl;
+      }
+      // 重载负运算符（ - ）//一元运算符
+      Distance operator- ()  
+      {
+         feet = -feet;
+         inches = -inches;
+         return Distance(feet, inches);
+      }
+      // 重载小于运算符（ &lt; ）
+      bool operator &lt;(const Distance&amp; d) //这里用的时布尔值
+      {
+         if(feet &lt; d.feet)
+         {
+            return true;
+         }
+         if(feet == d.feet &amp;&amp; inches &lt; d.inches)
+         {
+            return true;
+         }
+         return false;
+        //只会返回一个return 也就是就没走到上面两个return时默认返回false
+      }
+};
+int main()
+{
+   Distance D1(11, 10), D2(5, 11);
+ 
+   if( D1 &lt; D2 )
+   {
+      cout &lt;&lt; &quot;D1 is less than D2 &quot; &lt;&lt; endl;
+   }
+   else
+   {
+      cout &lt;&lt; &quot;D2 is less than D1 &quot; &lt;&lt; endl;
+   }
+   return 0;
+}
+//输出结果
+D2 is less than D1
+</code></pre>
+<h4 id="a-name264输入输出运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name264输入输出运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="26">4、输入/输出运算符重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>C++ 能够使用流提取运算符 &gt;&gt; 和流插入运算符 &lt;&lt; 来输入和输出内置的数据类型。您可以重载流提取运算符和流插入运算符来操作对象等用户自定义的数据类型。</p>
+<p>在这里，有一点很重要，我们需要把运算符重载函数声明为类的友元函数，这样我们就能不用创建对象而直接调用函数。</p>
+<p><strong>重载输入运算符&gt;&gt;</strong></p>
+<p>下面我们以全局函数的形式重载<code>&gt;&gt;</code>，使它能够读入两个 double 类型的数据，并分别赋值给复数的实部和虚部：</p>
+<pre><code class="language-cpp">istream &amp; operator&gt;&gt;(istream &amp;in, complex &amp;A){
+    in &gt;&gt; A.m_real &gt;&gt; A.m_imag;
+    return in;
+}
+</code></pre>
+<p>istream 表示输入流，cin 是 istream 类的对象，只不过这个对象是在标准库中定义的。之所以返回 istream 类对象的引用，是为了能够连续读取复数，让代码书写更加漂亮，例如：</p>
+<pre><code class="language-cpp">complex c1, c2;cin&gt;&gt;c1&gt;&gt;c2;
+</code></pre>
+<p>如果不返回引用，那就只能一个一个地读取了：</p>
+<pre><code class="language-cpp">complex c1, c2;cin&gt;&gt;c1;cin&gt;&gt;c2;
+</code></pre>
+<p>另外，运算符重载函数中用到了 complex 类的 private 成员变量，必须在 complex 类中将该函数声明为友元函数：</p>
+<pre><code class="language-cpp">friend istream &amp; operator&gt;&gt;(istream &amp; in , complex &amp;a);
+</code></pre>
+<p><code>&gt;&gt;</code>运算符可以按照下面的方式使用：</p>
+<pre><code class="language-cpp">complex c;
+cin&gt;&gt;c;
+</code></pre>
+<p>当输入<code>1.45 2.34</code>后，这两个小数就分别成为对象 c 的实部和虚部了。<code>cin&gt;&gt; c;</code>这一语句其实可以理解为：</p>
+<pre><code class="language-cpp">operator &gt;&gt; (cin, c3)
+</code></pre>
+<p>调用函数时，形参in成为cin的引用，形参A成为c3的引用，因此调用函数的过程变为：</p>
+<pre><code class="language-cpp">cin &gt;&gt; c3.m_real &gt;&gt; c3.m_imag; return cin
+</code></pre>
+<p><strong>重载输出运算符 &lt;&lt;</strong></p>
+<p>同样地，我们也可以模仿上面的形式对输出运算符<code>&gt;&gt;</code>进行重载，让它能够输出复数，请看下面的代码：</p>
+<pre><code class="language-cpp">ostream &amp; operator&lt;&lt;(ostream &amp;out, complex &amp;A){
+    out &lt;&lt; A.m_real &lt;&lt;&quot; + &quot;&lt;&lt; A.m_imag &lt;&lt;&quot; i &quot;;
+    return out;
+}
+</code></pre>
+<p>ostream 表示输出流，cout 是 ostream 类的对象。由于采用了引用的方式进行参数传递，并且也返回了对象的引用，所以重载后的运算符可以实现连续输出。
+为了能够直接访问 complex 类的 private 成员变量，同样需要将该函数声明为 complex 类的友元函数：（只有静态函数才能不经创建直接访问）</p>
+<pre><code class="language-cpp">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, complex &amp;A);
+</code></pre>
+<p>一个例子🌰：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i){
+         feet = f;
+         inches = i;
+      }
+      friend ostream &amp;operator&lt;&lt;( ostream &amp;output, 
+                                       const Distance &amp;D )
+      { 
+         output &lt;&lt; &quot;F : &quot; &lt;&lt; D.feet &lt;&lt; &quot; I : &quot; &lt;&lt; D.inches;
+         return output;            
+      }
+
+      friend istream &amp;operator&gt;&gt;( istream  &amp;input, Distance &amp;D )
+      { 
+         input &gt;&gt; D.feet &gt;&gt; D.inches;
+         return input;            
+      }
+};
+int main()
+{
+   Distance D1(11, 10), D2(5, 11), D3;
+
+   cout &lt;&lt; &quot;Enter the value of object : &quot; &lt;&lt; endl;
+   cin &gt;&gt; D3;
+   cout &lt;&lt; &quot;First Distance : &quot; &lt;&lt; D1 &lt;&lt; endl;
+   cout &lt;&lt; &quot;Second Distance :&quot; &lt;&lt; D2 &lt;&lt; endl;
+   cout &lt;&lt; &quot;Third Distance :&quot; &lt;&lt; D3 &lt;&lt; endl;
+
+
+   return 0;
+}
+//输出结果
+$./a.out
+Enter the value of object :
+70
+10
+First Distance : F : 11 I : 10
+Second Distance :F : 5 I : 11
+Third Distance :F : 70 I : 10
+</code></pre>
+<h4 id="a-name274赋值运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name274赋值运算符重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="27">4、赋值运算符重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>就像其他运算符一样，您可以重载赋值运算符（ = ），用于创建一个对象，比如拷贝构造函数。</p>
+<p>下面的实例演示了如何重载赋值运算符。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i){
+         feet = f;
+         inches = i;
+      }
+      void operator=(const Distance &amp;D )
+      { 
+         feet = D.feet;
+         inches = D.inches;
+      }
+      // 显示距离的方法
+      void displayDistance()
+      {
+         cout &lt;&lt; &quot;F: &quot; &lt;&lt; feet &lt;&lt;  &quot; I:&quot; &lt;&lt;  inches &lt;&lt; endl;
+      }
+      
+};
+int main()
+{
+   Distance D1(11, 10), D2(5, 11);
+
+   cout &lt;&lt; &quot;First Distance : &quot;; 
+   D1.displayDistance();
+   cout &lt;&lt; &quot;Second Distance :&quot;; 
+   D2.displayDistance();
+
+   // 使用赋值运算符
+   D1 = D2;
+   cout &lt;&lt; &quot;First Distance :&quot;; 
+   D1.displayDistance();
+
+   return 0;
+}
+//输出结果
+First Distance : F: 11 I:10
+Second Distance :F: 5 I:11
+First Distance :F: 5 I:11
+</code></pre>
+<h4 id="a-name285函数调用运算符--重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name285函数调用运算符--重载aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="28">5、函数调用运算符 () 重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h4>
+<p>函数调用运算符 () 可以被重载用于类的对象。当重载 () 时，您不是创造了一种新的调用函数的方式，相反地，这是创建一个可以传递任意数目参数的运算符函数</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+ 
+class Distance
+{
+   private:
+      int feet;             // 0 到无穷
+      int inches;           // 0 到 12
+   public:
+      // 所需的构造函数
+      Distance(){
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i){
+         feet = f;
+         inches = i;
+      }
+      // 重载函数调用运算符
+      Distance operator()(int a, int b, int c)
+      {
+         Distance D;
+         // 进行随机计算
+         D.feet = a + c + 10;
+         D.inches = b + c + 100 ;
+         return D;
+      }
+      // 显示距离的方法
+      void displayDistance()
+      {
+         cout &lt;&lt; &quot;F: &quot; &lt;&lt; feet &lt;&lt;  &quot; I:&quot; &lt;&lt;  inches &lt;&lt; endl;
+      }
+      
+};
+int main()
+{
+   Distance D1(11, 10), D2;
+
+   cout &lt;&lt; &quot;First Distance : &quot;; 
+   D1.displayDistance();
+
+   D2 = D1(10, 10, 10); // invoke operator()只要检测到（）内变为三个了，证明就激发了这个重载，就会进行内部定义的运算。
+   cout &lt;&lt; &quot;Second Distance :&quot;; 
+   D2.displayDistance();
+
+   return 0;
+}
+//输出结果
+First Distance : F: 11 I:10
+Second Distance :F: 30 I:120
+</code></pre>
+<h3 id="a-name29七c类的多态aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name29七c类的多态aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="29">七、C++类的多态</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h3>
+<p><strong>多态</strong>按字面的意思就是多种形态。当类之间存在层次结构，并且类之间是通过继承关联时，就会用到多态。</p>
+<p>C++ 多态意味着调用成员函数时，会根据调用函数的对象的类型来执行不同的函数</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt; 
+using namespace std;
+ 
+class Shape {
+   protected:
+      int width, height;
+   public:
+      Shape( int a=0, int b=0)
+      {
+         width = a;
+         height = b;
+      }
+      int area()
+      {
+         cout &lt;&lt; &quot;Parent class area :&quot; &lt;&lt;endl;
+         return 0;
+      }
+};
+class Rectangle: public Shape{
+   public:
+      Rectangle( int a=0, int b=0):Shape(a, b) { }
+      int area ()
+      { 
+         cout &lt;&lt; &quot;Rectangle class area :&quot; &lt;&lt;endl;
+         return (width * height); 
+      }
+};
+class Triangle: public Shape{
+   public:
+      Triangle( int a=0, int b=0):Shape(a, b) { }
+      int area ()
+      { 
+         cout &lt;&lt; &quot;Triangle class area :&quot; &lt;&lt;endl;
+         return (width * height / 2); 
+      }
+};
+// 程序的主函数
+int main( )
+{
+   Shape *shape;
+   Rectangle rec(10,7);
+   Triangle  tri(10,5);
+
+   // 存储矩形的地址
+   shape = &amp;rec;
+   // 调用矩形的求面积函数 area
+   shape-&gt;area();
+
+   // 存储三角形的地址
+   shape = &amp;tri;
+   // 调用三角形的求面积函数 area
+   shape-&gt;area();
+   
+   return 0;
+}
+//输出结果
+Parent class area
+Parent class area
+❌：不对啊，我希望输出的结果是两个的子类的，但是这里只有父类area函数的调用
+</code></pre>
+<blockquote>
+<p>导致错误输出的原因是，调用函数 area() 被编译器设置为基类中的版本，这就是所谓的<strong>静态多态</strong>，或<strong>静态链接</strong> - 函数调用在程序执行前就准备好了。有时候这也被称为<strong>早绑定</strong>，因为 area() 函数在程序编译期间就已经设置好了。</p>
+</blockquote>
+<p>为了克服上述问题，我直接在父类定义的需要被重写的函数之前佳哥virtual，然后后续编译器在运行的时候就会自动使用子类中的定义方法。</p>
+<pre><code class="language-cpp">class Shape {
+   protected:
+      int width, height;
+   public:
+      Shape( int a=0, int b=0)
+      {
+         width = a;
+         height = b;
+      }
+      virtual int area()
+      {
+         cout &lt;&lt; &quot;Parent class area :&quot; &lt;&lt;endl;
+         return 0;
+      }
+};
+//输出结果
+//Rectangle class area
+//Triangle class area
+</code></pre>
+<p>此时，编译器看的是指针的内容，而不是它的类型。因此，由于 tri 和 rec 类的对象的地址存储在 *shape 中，所以会调用各自的 area() 函数。</p>
+<p>正如您所看到的，每个子类都有一个函数 area() 的独立实现。这就是<strong>多态</strong>的一般使用方式。有了多态，您可以有多个不同的类，都带有同一个名称但具有不同实现的函数，函数的参数甚至可以是相同的</p>
+<blockquote>
+<p>❌：在这里，这个带有virtual定义的函数就叫做虚函数</p>
+</blockquote>
+<p><strong>虚函数</strong> 是在基类中使用关键字 <strong>virtual</strong> 声明的函数。在派生类中重新定义基类中定义的虚函数时，会告诉编译器不要静态链接到该函数。</p>
+<p>==我们想要的是在程序中任意点可以根据所调用的对象类型来选择调用的函数，这种操作被称为<strong>动态链接</strong>，或<strong>后期绑定==</strong>。</p>
+<p><strong>纯虚函数</strong></p>
+<p>您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。</p>
+<p>我们可以把基类中的虚函数 area() 改写如下：</p>
+<pre><code class="language-cpp">class Shape {
+   protected:
+      int width, height;
+   public:
+      Shape( int a=0, int b=0)
+      {
+         width = a;
+         height = b;
+      }
+      // pure virtual function
+      virtual int area() = 0; //在这里，也就是不定义函数内容，直接给他赋值成0
+};
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../C++学习/C++基础带目录.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../CFD学习/latex数学公式.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../C++学习/C++基础带目录.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../CFD学习/latex数学公式.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

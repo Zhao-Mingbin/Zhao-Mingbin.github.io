@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>shell 编程</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Homepage</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> shell 编程</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shell/shell编程.html" class="active"><strong aria-hidden="true">2.1.</strong> shell 编程</a></li><li class="chapter-item expanded "><a href="../shell/bash_shell编程实践.html"><strong aria-hidden="true">2.2.</strong> bash shell编程实践</a></li><li class="chapter-item expanded "><a href="../shell/linux速查.html"><strong aria-hidden="true">2.3.</strong> linux速查</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> C++学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../C++学习/C++基础带目录.html"><strong aria-hidden="true">3.1.</strong> C++基础</a></li><li class="chapter-item expanded "><a href="../C++学习/C++进阶带目录.html"><strong aria-hidden="true">3.2.</strong> C++进阶</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> CFD学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CFD学习/latex数学公式.html"><strong aria-hidden="true">4.1.</strong> latex数学公式</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="shell-编程"><a class="header" href="#shell-编程">shell 编程</a></h1>
+<p>使用文本编辑器建立 .sh文件</p>
+<pre><code class="language-shell">#！/bin/bash
+echo &quot;hello world!&quot;
+</code></pre>
+<p>其中==#！/bin/bash==用于表示脚本需要用什么解释器执行</p>
+<p>刚建立的sh文件不能直接运行，如果希望运行则有两种方法</p>
+<ol>
+<li>
+<h4 id="作为可执行程序"><a class="header" href="#作为可执行程序">作为可执行程序</a></h4>
+<p>将上面的代码保存为 test.sh，并 cd 到相应目录</p>
+<pre><code class="language-shell">chmod +x ./test.sh  #使脚本具有执行权限
+./test.sh  #执行脚本
+</code></pre>
+<p>注意，一定要写成 <strong>./test.sh</strong>，而不是 <strong>test.sh</strong>，运行其它二进制的程序也一样，直接写 test.sh，linux 系统会去 PATH 里寻找有没有叫 test.sh 的，而只有 /bin, /sbin, /usr/bin，/usr/sbin 等在 PATH 里，你的当前目录通常不在 PATH 里，所以写成 test.sh 是会找不到命令的，要用 ./test.sh 告诉系统说，就在当前目录找。</p>
+</li>
+<li>
+<h4 id="作为解释器参数"><a class="header" href="#作为解释器参数">作为解释器参数</a></h4>
+<p>这种运行方式是直接运行解释器，参数就是shell脚本的文件名</p>
+<pre><code class="language-shell">/bin/sh test.sh
+/bin/php test.php
+</code></pre>
+</li>
+</ol>
+<p>这种方式运行的脚本，==不需要在第一行指定解释器信息==，写了也没用。</p>
+<h1 id="shell-关键字"><a class="header" href="#shell-关键字">shell 关键字</a></h1>
+<p>常用的关键字如下：</p>
+<ol>
+<li>
+<p>echo：打印文字到屏幕</p>
+</li>
+<li>
+<p>exec：执行另一个 Shell 脚本</p>
+</li>
+<li>
+<p>read：读标准输入</p>
+</li>
+<li>
+<p>expr：对整数型变量进行算术运算</p>
+</li>
+<li>
+<p>test：用于测试变量是否相等、 是否为空、文件类型等</p>
+</li>
+<li>
+<p>exit：退出</p>
+</li>
+</ol>
+<pre><code class="language-shell">#!/bin/bash 
+
+echo &quot;Hello Shell&quot;
+
+# 读入变量
+read VAR
+echo &quot;VAR is $VAR&quot;
+
+# 计算变量
+expr $VAR - 5
+
+# 测试字符串
+test &quot;Hello&quot;=&quot;HelloWorld&quot;
+
+# 测试整数
+test $VAR -eq 10
+
+# 测试目录
+test -d ./Android
+
+# 执行其他 Shell 脚本
+exec ./othershell.sh
+
+# 退出
+exit
+</code></pre>
+<p>运行前，你需要新建一个 <code>othershell.sh</code> 的文件，让它输出 <code>I'm othershell</code>，并且中途需要一次输入，我这里输入的是 10：</p>
+<pre><code class="language-shell">Hello Shell
+10
+VAR is 10
+5
+I'm othershell
+</code></pre>
+<h1 id="shell-变量"><a class="header" href="#shell-变量">shell 变量</a></h1>
+<p>shell变量分为三种：</p>
+<ul>
+<li>用户自定义变量</li>
+<li>预定义变量</li>
+<li>环境变量</li>
+</ul>
+<p>定义变量需要注意下面2点：</p>
+<ul>
+<li>等号前后一定不要有空格 NUM=10</li>
+<li>一般变量名用大写 M=1</li>
+<li>使用 <code>$VAR</code> 调用变量，在变量名称前面添加<code>$</code>用于调用变量</li>
+</ul>
+<h4 id="一用户自定义变量"><a class="header" href="#一用户自定义变量">一、用户自定义变量</a></h4>
+<p><strong>1、变量定义及赋值</strong></p>
+<p>这种变量<strong>只支持字符串类型</strong>，不支持其他字符，浮点等类型，</p>
+<p>常见有这 3 个前缀：</p>
+<ol>
+<li>
+<p><code>unset</code>：删除变量</p>
+</li>
+<li>
+<p><code>readonly</code>：标记只读变量</p>
+</li>
+<li>
+<p><code>export</code>：指定全局变量</p>
+</li>
+</ol>
+<p>一个例子：</p>
+<pre><code class="language-shell">#!/bin/bash 
+
+# 定义普通变量
+CITY=SHENZHEN
+
+# 定义全局变量
+export NAME=cdeveloper
+
+# 定义只读变量
+readonly AGE=21
+
+# 打印变量的值
+echo $CITY
+echo $NAME
+echo $AGE
+
+# 删除 CITY 变量
+unset CITY
+# 不会输出 SHENZHEN
+echo $CITY
+</code></pre>
+<p>但是赋值的变量必须为一个整体不能有空格，要想包含空格需要用引号引用起来，类似于Python字符串定义</p>
+<p><strong>2.引号的特殊用法</strong></p>
+<blockquote>
+<p>但是单引号‘ ’和双引号“ ”也有区别</p>
+<p>从中可以看到，单引号可以保持==原样输出==，而双引号则会替换变量</p>
+</blockquote>
+<p>一个例子：</p>
+<pre><code class="language-shell">[root@localhost ~]:~$ a=&quot;hello&quot;
+[root@localhost ~]:~$ b=&quot;$a world&quot;
+[root@localhost ~]:~$ echo $b
+hello world
+[root@localhost ~]:~$ c='$a world'
+[root@localhost ~]:~$ echo $c
+$a world
+</code></pre>
+<p><strong>3.``符号的特殊用法</strong></p>
+<blockquote>
+<p>除此之外，与单引号相似的号也有特殊含义，其表示其中引起来的==命令会被执行==，如果不想使用这个符号也可以使用<code>$()</code> 来代替</p>
+</blockquote>
+<pre><code class="language-shell">[root@localhost ~]:~$ d=`date`
+[root@localhost ~]:~$ echo $d
+Wed Dec 28 06:31:13 PST 2016
+
+[root@localhost ~]:~$ e=$(date)
+[root@localhost ~]:~$ echo $e
+Wed Dec 28 06:31:48 PST 2016
+</code></pre>
+<p><strong>4、命令行交互<code>read</code></strong></p>
+<p>有时候我们希望在脚本运行时能根据用户的输入决定脚本后续执行逻辑，比如在安装插件的时候经常会让用户选择输入<code>[N/Y]</code>的时候。 　　比如有一个脚本<code>script_test.sh</code></p>
+<pre><code class="language-shell">read -p &quot;Please input [Y/N]: &quot; yn
+if [ &quot;$yn&quot; == &quot;N&quot; -o &quot;$yn&quot; == &quot;n&quot; ]; then
+  echo &quot;NO&quot;
+elif [ &quot;$yn&quot; == &quot;Y&quot; -o &quot;$yn&quot; == &quot;y&quot; ]; then
+  echo &quot;YES&quot;
+fi
+</code></pre>
+<p><code>read</code>命令的使用形式为</p>
+<pre><code class="language-sh">read [-pt] variable
+　　参数p：后面可以接提示符
+　　参数t：后面可以接秒数
+例如：
+read -p &quot;please input your name&quot; -t 5 name
+</code></pre>
+<p><strong>5、定义变量类型<code>declare</code></strong></p>
+<p>默认情况下，变量的赋值内容都是字符类型的。例如下面的代码，我们期望的是输出一个求和值，但是输出的是一个求和表达式。</p>
+<pre><code class="language-shell">[root@localhost ~]:~$ sum=100+300+500
+[root@localhost ~]:~$ echo $sum
+100+300+500
+
+如果想要输出求和后的值，可以使用declare命令。
+
+[root@localhost ~]:~$ declare -i sum=100+300+500
+[root@localhost ~]:~$ echo $sum
+900
+
+declare [-aixr] variable
+　　参数a：将variable定义为数组
+　　参数i：将variable定义为整型(integer)
+　　参数x：将variable设置成环境变量，类似于export的作用
+　　参数r：variable为readonly类型，值不能被更改
+</code></pre>
+<h4 id="二shell中的集合类型"><a class="header" href="#二shell中的集合类型">二、Shell中的集合类型</a></h4>
+<p><strong>1、<strong>数组</strong>(<code>array</code>)</strong></p>
+<p><strong>（1）数组定义和赋值</strong></p>
+<p>数组中的元素用括号包围，各元素之间用空格隔开。例如</p>
+<pre><code class="language-sh">[root@localhost ~]:~$ array_name=(v0 v1 v2 v3)
+
+#可以重新设置指定元素的内容，如下所示：
+[root@localhost ~]:~$ array_name[2]=v22
+[root@localhost ~]:~$ echo ${array_name[2]}
+v22
+</code></pre>
+<p><strong>（2）数组元素访问</strong></p>
+<p>输出该数组中所有元素：</p>
+<pre><code class="language-sh">[root@localhost ~]:~$ echo ${array_name[*]} #此处与变量引用相似，也是用$符号,优于变成显示一组数，所以需要加{}
+v0 v1 v22 v3
+[root@localhost ~]:~$ echo ${array_name[@]}
+v0 v1 v22 v3
+
+#数组元素下标从0开始，想要访问指定位置的元素，使用[]指定下标值，如下所示
+[root@localhost ~]:~$ echo ${array_name[0]}
+v0
+[root@localhost ~]:~$ echo ${array_name[1]}
+v1
+[root@localhost ~]:~$ echo ${array_name[3]}
+v3
+[root@localhost ~]:~$ echo ${array_name[2]}
+v2
+[root@localhost ~]:~$ echo ${array_name[4]}
+</code></pre>
+<p><strong>（3）获取数组长度</strong></p>
+<p>获取数组长度使用如下命令</p>
+<pre><code class="language-sh">[root@localhost ~]:~$ echo ${#array_name[@]}
+4
+[root@localhost ~]:~$ echo ${#array_name[*]}
+4
+
+#同样也可以获取单个元素的长度
+[root@localhost ~]:~$ echo ${#array_name[2]}
+</code></pre>
+<h4 id="2map"><a class="header" href="#2map">2、map</a></h4>
+<p><code>map</code>类型中存储的都是键值对。 类比与python中的字典，在Shell中定义<code>map</code>变量如下所示：</p>
+<pre><code class="language-sh">declare -A m=([&quot;a&quot;]=&quot;1&quot; [&quot;b&quot;]=&quot;2&quot;)
+#输出所有的key
+[root@localhost ~]:~$ echo ${!m[@]}
+a b
+#输出所有的value
+[root@localhost ~]:~$ echo ${m[@]}
+1 2
+#输出指定key对应的value
+[root@localhost ~]:~$ echo ${m[&quot;a&quot;]}
+1
+[root@localhost ~]:~$ echo ${m[&quot;c&quot;]}
+#添加元素
+[root@localhost ~]:~$ m[&quot;c&quot;]=&quot;3&quot;
+[root@localhost ~]:~$ echo ${m[&quot;c&quot;]}
+3
+#map中键值对的个数
+[root@localhost ~]:~$ echo ${#m[@]}
+3
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../shell/bash_shell编程实践.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../shell/bash_shell编程实践.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

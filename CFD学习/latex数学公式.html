@@ -1,0 +1,769 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>latex数学公式</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Homepage</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> shell 编程</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shell/shell编程.html"><strong aria-hidden="true">2.1.</strong> shell 编程</a></li><li class="chapter-item expanded "><a href="../shell/bash_shell编程实践.html"><strong aria-hidden="true">2.2.</strong> bash shell编程实践</a></li><li class="chapter-item expanded "><a href="../shell/linux速查.html"><strong aria-hidden="true">2.3.</strong> linux速查</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> C++学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../C++学习/C++基础带目录.html"><strong aria-hidden="true">3.1.</strong> C++基础</a></li><li class="chapter-item expanded "><a href="../C++学习/C++进阶带目录.html"><strong aria-hidden="true">3.2.</strong> C++进阶</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> CFD学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CFD学习/latex数学公式.html" class="active"><strong aria-hidden="true">4.1.</strong> latex数学公式</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="latex-公式编辑写法速查"><a class="header" href="#latex-公式编辑写法速查">Latex 公式编辑写法速查</a></h1>
+<p><img src="latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/media/logo-16323978846531.png" alt="img" /></p>
+<p><a href="https://www.latex-project.org/"><strong>LaTeX</strong></a> 是一种高质量的排版格式，可以生成复杂的表格与数学公式，是当前电子与数学出版行业的事实标准。本文以 <a href="https://www.pandoc.org/"><strong>Pandoc</strong></a> 作为 LaTex 渲染引擎（一款用于标记语言文档转换的命令行工具），分门别类的总结了撰写数学公式所需要经常使用到的 LaTeX 语法，方便写作相关科技类文章时随手查阅。</p>
+<h2 id="保留字符"><a class="header" href="#保留字符">保留字符</a></h2>
+<p>LaTeX 环境中具有特殊含义的保留字符，不能直接使用，必须通过指定的语法实现：</p>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$ # $</td><td align="center"><code>\#</code></td><td align="center"><strong>6</strong></td><td align="center">${$</td><td align="center"><code>\{</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$%$</td><td align="center"><code>\%</code></td><td align="center"><strong>7</strong></td><td align="center">$}$</td><td align="center"><code>\}</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$^\wedge$</td><td align="center"><code>^\wedge</code></td><td align="center"><strong>8</strong></td><td align="center">$\sim$</td><td align="center"><code>\sim</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$&amp;$</td><td align="center"><code>\&amp;</code></td><td align="center"><strong>9</strong></td><td align="center">$\backslash$</td><td align="center"><code>\backslash</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$_$</td><td align="center"><code>\_</code></td><td align="center"></td><td align="center">\( \int x dx = \frac{x^2}{2} + C \)</td><td align="center">$\( \int x dx = \frac{x^2}{2} + C \)$</td></tr>
+</tbody></table>
+<h2 id="希腊字母"><a class="header" href="#希腊字母">希腊字母</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">标准符号</th><th align="center">LaTeX</th><th align="center">首字母大写</th><th align="center">LaTeX</th><th align="center">使用 <code>var</code> 前缀</th><th align="center">LaTeX</th><th align="center">读音</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\alpha$</td><td align="center"><code>\alpha</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/ˈælfə/</td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\beta$</td><td align="center"><code>\beta</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/ˈbeɪtə/</td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\gamma$</td><td align="center"><code>\gamma</code></td><td align="center">$\Gamma$</td><td align="center"><code>\Gamma</code></td><td align="center">$\varGamma$</td><td align="center"><code>\varGamma</code></td><td align="center">/ˈɡæmə/</td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\delta$</td><td align="center"><code>\delta</code></td><td align="center">$\Delta$</td><td align="center"><code>\Delta</code></td><td align="center">$\varDelta$</td><td align="center"><code>\varDelta</code></td><td align="center">/ˈdɛltə/</td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\epsilon$</td><td align="center"><code>\epsilon</code></td><td align="center"></td><td align="center"></td><td align="center">$\varepsilon$</td><td align="center"><code>\varepsilon</code></td><td align="center">/ˈɛpsɪlɒn/</td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\zeta$</td><td align="center"><code>\zeta</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/ˈzeɪtə/</td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\eta$</td><td align="center"><code>\eta</code></td><td align="center"></td><td align="center"></td><td align="center">$\varTheta$</td><td align="center"><code>\varTheta</code></td><td align="center">/ˈeɪtə/</td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\theta$</td><td align="center"><code>\theta</code></td><td align="center">$\Theta$</td><td align="center"><code>\Theta</code></td><td align="center">$\vartheta$</td><td align="center"><code>\vartheta</code></td><td align="center">/ˈθiːtə/</td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\iota$</td><td align="center"><code>\iota</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/aɪˈoʊtə/</td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\kappa$</td><td align="center"><code>\kappa</code></td><td align="center"></td><td align="center"></td><td align="center">$\varkappa$</td><td align="center"><code>\varkappa</code></td><td align="center">/ˈkæpə/</td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\lambda$</td><td align="center"><code>\lambda</code></td><td align="center">$\Lambda$</td><td align="center"><code>\Lambda</code></td><td align="center">$\varLambda$</td><td align="center"><code>\varLambda</code></td><td align="center">/ˈlæmdə/</td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\mu$</td><td align="center"><code>\mu</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/mjuː/</td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\nu$</td><td align="center"><code>\nu</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/njuː/</td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\xi$</td><td align="center"><code>\xi</code></td><td align="center">$\Xi$</td><td align="center"><code>\Xi</code></td><td align="center">$\varXi$</td><td align="center"><code>\varXi</code></td><td align="center">/zaɪ, ksaɪ/</td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$o$</td><td align="center"><code>o</code></td><td align="center">$O$</td><td align="center"><code>O</code></td><td align="center">$\varPi$</td><td align="center"><code>\varPi</code></td><td align="center">/ˈɒmɪkrɒn/</td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\pi$</td><td align="center"><code>\pi</code></td><td align="center">$\Pi$</td><td align="center"><code>\Pi</code></td><td align="center">$\varpi$</td><td align="center"><code>\varpi</code></td><td align="center">/paɪ/</td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\rho$</td><td align="center"><code>\rho</code></td><td align="center"></td><td align="center"></td><td align="center">$\varrho$</td><td align="center"><code>\varrho</code></td><td align="center">/roʊ/</td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\sigma$</td><td align="center"><code>\sigma</code></td><td align="center">$\Sigma$</td><td align="center"><code>\Sigma</code></td><td align="center">$\varsigma$</td><td align="center"><code>\varsigma</code></td><td align="center">/ˈsɪɡmə/</td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\tau$</td><td align="center"><code>\tau</code></td><td align="center"></td><td align="center"></td><td align="center">$\varSigma$</td><td align="center"><code>\varSigma</code></td><td align="center">/taʊ, tɔː/</td></tr>
+<tr><td align="center"><strong>20</strong></td><td align="center">$\upsilon$</td><td align="center"><code>\upsilon</code></td><td align="center">$\Upsilon$</td><td align="center"><code>\Upsilon</code></td><td align="center">$\varUpsilon$</td><td align="center"><code>\varUpsilon</code></td><td align="center">/ˈʌpsɪlɒn/</td></tr>
+<tr><td align="center"><strong>21</strong></td><td align="center">$\phi$</td><td align="center"><code>\phi</code></td><td align="center">$\Phi$</td><td align="center"><code>\Phi</code></td><td align="center">$\varphi$</td><td align="center"><code>\varphi</code></td><td align="center">/faɪ/</td></tr>
+<tr><td align="center"><strong>22</strong></td><td align="center">$\chi$</td><td align="center"><code>\chi</code></td><td align="center"></td><td align="center"></td><td align="center">$\varPhi$</td><td align="center"><code>\varPhi</code></td><td align="center">/kaɪ/</td></tr>
+<tr><td align="center"><strong>23</strong></td><td align="center">$\psi$</td><td align="center"><code>\psi</code></td><td align="center">$\Psi$</td><td align="center"><code>\Psi</code></td><td align="center">$\varPsi$</td><td align="center"><code>\varPsi</code></td><td align="center">/psaɪ/</td></tr>
+<tr><td align="center"><strong>24</strong></td><td align="center">$\omega$</td><td align="center"><code>\omega</code></td><td align="center">$\Omega$</td><td align="center"><code>\Omega</code></td><td align="center">$\varOmega$</td><td align="center"><code>\varOmega</code></td><td align="center">/oʊˈmeɪɡə/</td></tr>
+<tr><td align="center"><strong>25</strong></td><td align="center">$\digamma$</td><td align="center"><code>\digamma</code></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">/daɪ'gæmə/</td></tr>
+</tbody></table>
+<h2 id="希伯来字母"><a class="header" href="#希伯来字母">希伯来字母</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">英文</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">英文</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\aleph$</td><td align="center"><code>\aleph</code></td><td align="center">aleph</td><td align="center"><strong>3</strong></td><td align="center">$\gimel$</td><td align="center"><code>\gimel</code></td><td align="center">gimel</td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\beth$</td><td align="center"><code>\beth</code></td><td align="center">beth</td><td align="center"><strong>4</strong></td><td align="center">$\daleth$</td><td align="center"><code>\daleth</code></td><td align="center">daleth</td></tr>
+</tbody></table>
+<h2 id="二元运算符"><a class="header" href="#二元运算符">二元运算符</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$+$</td><td align="center"><code>+</code></td><td align="center"><strong>20</strong></td><td align="center">$\bullet$</td><td align="center"><code>\bullet</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$-$</td><td align="center"><code>-</code></td><td align="center"><strong>21</strong></td><td align="center">$\oplus$</td><td align="center"><code>\oplus</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\times$</td><td align="center"><code>\times</code></td><td align="center"><strong>22</strong></td><td align="center">$\ominus$</td><td align="center"><code>\ominus</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\div$</td><td align="center"><code>\div</code></td><td align="center"><strong>23</strong></td><td align="center">$\odot$</td><td align="center"><code>\odot</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\pm$</td><td align="center"><code>\pm</code></td><td align="center"><strong>24</strong></td><td align="center">$\oslash$</td><td align="center"><code>\oslash</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\mp$</td><td align="center"><code>\mp</code></td><td align="center"><strong>25</strong></td><td align="center">$\otimes$</td><td align="center"><code>\otimes</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\triangleleft$</td><td align="center"><code>\triangleleft</code></td><td align="center"><strong>26</strong></td><td align="center">$\bigcirc$</td><td align="center"><code>\bigcirc</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\triangleright$</td><td align="center"><code>\triangleright</code></td><td align="center"><strong>27</strong></td><td align="center">$\diamond$</td><td align="center"><code>\diamond</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\cdot$</td><td align="center"><code>\cdot</code></td><td align="center"><strong>28</strong></td><td align="center">$\uplus$</td><td align="center"><code>\uplus</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\setminus$</td><td align="center"><code>\setminus</code></td><td align="center"><strong>29</strong></td><td align="center">$\bigtriangleup$</td><td align="center"><code>\bigtriangleup</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\star$</td><td align="center"><code>\star</code></td><td align="center"><strong>30</strong></td><td align="center">$\bigtriangledown$</td><td align="center"><code>\bigtriangledown</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\ast$</td><td align="center"><code>\ast</code></td><td align="center"><strong>31</strong></td><td align="center">$\lhd$</td><td align="center"><code>\lhd</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\cup$</td><td align="center"><code>\cup</code></td><td align="center"><strong>32</strong></td><td align="center">$\rhd$</td><td align="center"><code>\rhd</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\cap$</td><td align="center"><code>\cap</code></td><td align="center"><strong>33</strong></td><td align="center">$\unlhd$</td><td align="center"><code>\unlhd</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\sqcup$</td><td align="center"><code>\sqcup</code></td><td align="center"><strong>34</strong></td><td align="center">$\unrhd$</td><td align="center"><code>\unrhd</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\sqcap$</td><td align="center"><code>\sqcap</code></td><td align="center"><strong>35</strong></td><td align="center">$\amalg$</td><td align="center"><code>\amalg</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\vee$</td><td align="center"><code>\vee</code></td><td align="center"><strong>36</strong></td><td align="center">$\wr$</td><td align="center"><code>\wr</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\wedge$</td><td align="center"><code>\wedge</code></td><td align="center"><strong>37</strong></td><td align="center">$\dagger$</td><td align="center"><code>\dagger</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\circ$</td><td align="center"><code>\circ</code></td><td align="center"><strong>38</strong></td><td align="center">$\ddagger$</td><td align="center"><code>\ddagger</code></td></tr>
+</tbody></table>
+<h2 id="二元关系符"><a class="header" href="#二元关系符">二元关系符</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$=$</td><td align="center"><code>=</code></td><td align="center"><strong>49</strong></td><td align="center">$\gneq$</td><td align="center"><code>\gneq</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\ne$</td><td align="center"><code>\ne</code></td><td align="center"><strong>50</strong></td><td align="center">$\geqq$</td><td align="center"><code>\geqq</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\neq$</td><td align="center"><code>\neq</code></td><td align="center"><strong>51</strong></td><td align="center">$\ngeq$</td><td align="center"><code>\ngeq</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\equiv$</td><td align="center"><code>\equiv</code></td><td align="center"><strong>52</strong></td><td align="center">$\ngeqq$</td><td align="center"><code>\ngeqq</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\not\equiv$</td><td align="center"><code>\not\equiv</code></td><td align="center"><strong>53</strong></td><td align="center">$\gneqq$</td><td align="center"><code>\gneqq</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\doteq$</td><td align="center"><code>\doteq</code></td><td align="center"><strong>54</strong></td><td align="center">$\gvertneqq$</td><td align="center"><code>\gvertneqq</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\doteqdot$</td><td align="center"><code>\doteqdot</code></td><td align="center"><strong>55</strong></td><td align="center">$\lessgtr$</td><td align="center"><code>\lessgtr</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\overset{\underset{\mathrm{def}}{}}{=}$</td><td align="center"><code>\overset{\underset{\mathrm{def}}{}}{=}</code></td><td align="center"><strong>56</strong></td><td align="center">$\lesseqgtr$</td><td align="center"><code>\lesseqgtr</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$:=$</td><td align="center"><code>:=</code></td><td align="center"><strong>57</strong></td><td align="center">$\lesseqqgtr$</td><td align="center"><code>\lesseqqgtr</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\sim$</td><td align="center"><code>\sim</code></td><td align="center"><strong>58</strong></td><td align="center">$\gtrless$</td><td align="center"><code>\gtrless</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\nsim$</td><td align="center"><code>\nsim</code></td><td align="center"><strong>59</strong></td><td align="center">$\gtreqless$</td><td align="center"><code>\gtreqless</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\backsim$</td><td align="center"><code>\backsim</code></td><td align="center"><strong>60</strong></td><td align="center">$\gtreqqless$</td><td align="center"><code>\gtreqqless</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\thicksim$</td><td align="center"><code>\thicksim</code></td><td align="center"><strong>61</strong></td><td align="center">$\leqslant$</td><td align="center"><code>\leqslant</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\simeq$</td><td align="center"><code>\simeq</code></td><td align="center"><strong>62</strong></td><td align="center">$\nleqslant$</td><td align="center"><code>\nleqslant</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\backsimeq$</td><td align="center"><code>\backsimeq</code></td><td align="center"><strong>63</strong></td><td align="center">$\eqslantless$</td><td align="center"><code>\eqslantless</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\eqsim$</td><td align="center"><code>\eqsim</code></td><td align="center"><strong>64</strong></td><td align="center">$\geqslant$</td><td align="center"><code>\geqslant</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\cong$</td><td align="center"><code>\cong</code></td><td align="center"><strong>65</strong></td><td align="center">$\ngeqslant$</td><td align="center"><code>\ngeqslant</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\ncong$</td><td align="center"><code>\ncong</code></td><td align="center"><strong>66</strong></td><td align="center">$\eqslantgtr$</td><td align="center"><code>\eqslantgtr</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\approx$</td><td align="center"><code>\approx</code></td><td align="center"><strong>67</strong></td><td align="center">$\lesssim$</td><td align="center"><code>\lesssim</code></td></tr>
+<tr><td align="center"><strong>20</strong></td><td align="center">$\thickapprox$</td><td align="center"><code>\thickapprox</code></td><td align="center"><strong>68</strong></td><td align="center">$\lnsim$</td><td align="center"><code>\lnsim</code></td></tr>
+<tr><td align="center"><strong>21</strong></td><td align="center">$\approxeq$</td><td align="center"><code>\approxeq</code></td><td align="center"><strong>69</strong></td><td align="center">$\lessapprox$</td><td align="center"><code>\lessapprox</code></td></tr>
+<tr><td align="center"><strong>22</strong></td><td align="center">$\asymp$</td><td align="center"><code>\asymp</code></td><td align="center"><strong>70</strong></td><td align="center">$\lnapprox$</td><td align="center"><code>\lnapprox</code></td></tr>
+<tr><td align="center"><strong>23</strong></td><td align="center">$\propto$</td><td align="center"><code>\propto</code></td><td align="center"><strong>71</strong></td><td align="center">$\gtrsim$</td><td align="center"><code>\gtrsim</code></td></tr>
+<tr><td align="center"><strong>24</strong></td><td align="center">$\varpropto$</td><td align="center"><code>\varpropto</code></td><td align="center"><strong>72</strong></td><td align="center">$\gnsim$</td><td align="center"><code>\gnsim</code></td></tr>
+<tr><td align="center"><strong>25</strong></td><td align="center">$&lt;$</td><td align="center"><code>&lt;</code></td><td align="center"><strong>73</strong></td><td align="center">$\gtrapprox$</td><td align="center"><code>\gtrapprox</code></td></tr>
+<tr><td align="center"><strong>26</strong></td><td align="center">$\nless$</td><td align="center"><code>\nless</code></td><td align="center"><strong>74</strong></td><td align="center">$\gnapprox$</td><td align="center"><code>\gnapprox</code></td></tr>
+<tr><td align="center"><strong>27</strong></td><td align="center">$\ll$</td><td align="center"><code>\ll</code></td><td align="center"><strong>75</strong></td><td align="center">$\prec$</td><td align="center"><code>\prec</code></td></tr>
+<tr><td align="center"><strong>28</strong></td><td align="center">$\not\ll$</td><td align="center"><code>\not\ll</code></td><td align="center"><strong>76</strong></td><td align="center">$\nprec$</td><td align="center"><code>\nprec</code></td></tr>
+<tr><td align="center"><strong>29</strong></td><td align="center">$\lll$</td><td align="center"><code>\lll</code></td><td align="center"><strong>77</strong></td><td align="center">$\preceq$</td><td align="center"><code>\preceq</code></td></tr>
+<tr><td align="center"><strong>30</strong></td><td align="center">$\not\lll$</td><td align="center"><code>\not\lll</code></td><td align="center"><strong>78</strong></td><td align="center">$\npreceq$</td><td align="center"><code>\npreceq</code></td></tr>
+<tr><td align="center"><strong>31</strong></td><td align="center">$\lessdot$</td><td align="center"><code>\lessdot</code></td><td align="center"><strong>79</strong></td><td align="center">$\precneqq$</td><td align="center"><code>\precneqq</code></td></tr>
+<tr><td align="center"><strong>32</strong></td><td align="center">$&gt;$</td><td align="center"><code>&gt;</code></td><td align="center"><strong>80</strong></td><td align="center">$\succ$</td><td align="center"><code>\succ</code></td></tr>
+<tr><td align="center"><strong>33</strong></td><td align="center">$\ngtr$</td><td align="center"><code>\ngtr</code></td><td align="center"><strong>81</strong></td><td align="center">$\nsucc$</td><td align="center"><code>\nsucc</code></td></tr>
+<tr><td align="center"><strong>34</strong></td><td align="center">$\gg$</td><td align="center"><code>\gg</code></td><td align="center"><strong>82</strong></td><td align="center">$\succeq$</td><td align="center"><code>\succeq</code></td></tr>
+<tr><td align="center"><strong>35</strong></td><td align="center">$\not\gg$</td><td align="center"><code>\not\gg</code></td><td align="center"><strong>83</strong></td><td align="center">$\nsucceq$</td><td align="center"><code>\nsucceq</code></td></tr>
+<tr><td align="center"><strong>36</strong></td><td align="center">$\ggg$</td><td align="center"><code>\ggg</code></td><td align="center"><strong>84</strong></td><td align="center">$\succneqq$</td><td align="center"><code>\succneqq</code></td></tr>
+<tr><td align="center"><strong>37</strong></td><td align="center">$\not\ggg$</td><td align="center"><code>\not\ggg</code></td><td align="center"><strong>85</strong></td><td align="center">$\preccurlyeq$</td><td align="center"><code>\preccurlyeq</code></td></tr>
+<tr><td align="center"><strong>38</strong></td><td align="center">$\gtrdot$</td><td align="center"><code>\gtrdot</code></td><td align="center"><strong>86</strong></td><td align="center">$\curlyeqprec$</td><td align="center"><code>\curlyeqprec</code></td></tr>
+<tr><td align="center"><strong>39</strong></td><td align="center">$\le$</td><td align="center"><code>\le</code></td><td align="center"><strong>87</strong></td><td align="center">$\succcurlyeq$</td><td align="center"><code>\succcurlyeq</code></td></tr>
+<tr><td align="center"><strong>40</strong></td><td align="center">$\leq$</td><td align="center"><code>\leq</code></td><td align="center"><strong>88</strong></td><td align="center">$\curlyeqsucc$</td><td align="center"><code>\curlyeqsucc</code></td></tr>
+<tr><td align="center"><strong>41</strong></td><td align="center">$\lneq$</td><td align="center"><code>\lneq</code></td><td align="center"><strong>89</strong></td><td align="center">$\precsim$</td><td align="center"><code>\precsim</code></td></tr>
+<tr><td align="center"><strong>42</strong></td><td align="center">$\leqq$</td><td align="center"><code>\leqq</code></td><td align="center"><strong>90</strong></td><td align="center">$\precnsim$</td><td align="center"><code>\precnsim</code></td></tr>
+<tr><td align="center"><strong>43</strong></td><td align="center">$\nleq$</td><td align="center"><code>\nleq</code></td><td align="center"><strong>91</strong></td><td align="center">$\precapprox$</td><td align="center"><code>\precapprox</code></td></tr>
+<tr><td align="center"><strong>44</strong></td><td align="center">$\nleqq$</td><td align="center"><code>\nleqq</code></td><td align="center"><strong>92</strong></td><td align="center">$\precnapprox$</td><td align="center"><code>\precnapprox</code></td></tr>
+<tr><td align="center"><strong>45</strong></td><td align="center">$\lneqq$</td><td align="center"><code>\lneqq</code></td><td align="center"><strong>93</strong></td><td align="center">$\succsim$</td><td align="center"><code>\succsim</code></td></tr>
+<tr><td align="center"><strong>46</strong></td><td align="center">$\lvertneqq$</td><td align="center"><code>\lvertneqq</code></td><td align="center"><strong>94</strong></td><td align="center">$\succnsim$</td><td align="center"><code>\succnsim</code></td></tr>
+<tr><td align="center"><strong>47</strong></td><td align="center">$\ge$</td><td align="center"><code>\ge</code></td><td align="center"><strong>95</strong></td><td align="center">$\succapprox$</td><td align="center"><code>\succapprox</code></td></tr>
+<tr><td align="center"><strong>48</strong></td><td align="center">$\geq$</td><td align="center"><code>\geq</code></td><td align="center"><strong>96</strong></td><td align="center">$\succnapprox$</td><td align="center"><code>\succnapprox</code></td></tr>
+</tbody></table>
+<h2 id="几何符号"><a class="header" href="#几何符号">几何符号</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\parallel$</td><td align="center"><code>\parallel</code></td><td align="center"><strong>14</strong></td><td align="center">$\lozenge$</td><td align="center"><code>\lozenge</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\nparallel$</td><td align="center"><code>\nparallel</code></td><td align="center"><strong>15</strong></td><td align="center">$\blacklozenge$</td><td align="center"><code>\blacklozenge</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\shortparallel$</td><td align="center"><code>\shortparallel</code></td><td align="center"><strong>16</strong></td><td align="center">$\bigstar$</td><td align="center"><code>\bigstar</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\nshortparallel$</td><td align="center"><code>\nshortparallel</code></td><td align="center"><strong>17</strong></td><td align="center">$\bigcirc$</td><td align="center"><code>\bigcirc</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\perp$</td><td align="center"><code>\perp</code></td><td align="center"><strong>18</strong></td><td align="center">$\triangle$</td><td align="center"><code>\triangle</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\angle$</td><td align="center"><code>\angle</code></td><td align="center"><strong>19</strong></td><td align="center">$\bigtriangleup$</td><td align="center"><code>\bigtriangleup</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\sphericalangle$</td><td align="center"><code>\sphericalangle</code></td><td align="center"><strong>20</strong></td><td align="center">$\bigtriangledown$</td><td align="center"><code>\bigtriangledown</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\measuredangle$</td><td align="center"><code>\measuredangle</code></td><td align="center"><strong>21</strong></td><td align="center">$\vartriangle$</td><td align="center"><code>\vartriangle</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$45^\circ$</td><td align="center"><code>45^\circ</code></td><td align="center"><strong>22</strong></td><td align="center">$\triangledown$</td><td align="center"><code>\triangledown</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\Box$</td><td align="center"><code>\Box</code></td><td align="center"><strong>23</strong></td><td align="center">$\blacktriangle$</td><td align="center"><code>\blacktriangle</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\blacksquare$</td><td align="center"><code>\blacksquare</code></td><td align="center"><strong>24</strong></td><td align="center">$\blacktriangledown$</td><td align="center"><code>\blacktriangledown</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\diamond$</td><td align="center"><code>\diamond</code></td><td align="center"><strong>25</strong></td><td align="center">$\blacktriangleleft$</td><td align="center"><code>\blacktriangleleft</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\Diamond \lozenge$</td><td align="center"><code>\Diamond \lozenge</code></td><td align="center"><strong>26</strong></td><td align="center">$\blacktriangleright$</td><td align="center"><code>\blacktriangleright</code></td></tr>
+</tbody></table>
+<h2 id="逻辑符号"><a class="header" href="#逻辑符号">逻辑符号</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\forall$</td><td align="center"><code>\forall</code></td><td align="center"><strong>20</strong></td><td align="center">$\neg$</td><td align="center"><code>\neg</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\exists$</td><td align="center"><code>\exists</code></td><td align="center"><strong>21</strong></td><td align="center">$\not\operatorname{R}$</td><td align="center"><code>\not\operatorname{R}</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\nexists$</td><td align="center"><code>\nexists</code></td><td align="center"><strong>22</strong></td><td align="center">$\bot$</td><td align="center"><code>\bot</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\therefore$</td><td align="center"><code>\therefore</code></td><td align="center"><strong>23</strong></td><td align="center">$\top$</td><td align="center"><code>\top</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\because$</td><td align="center"><code>\because</code></td><td align="center"><strong>24</strong></td><td align="center">$\vdash$</td><td align="center"><code>\vdash</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\And$</td><td align="center"><code>\And</code></td><td align="center"><strong>25</strong></td><td align="center">$\dashv$</td><td align="center"><code>\dashv</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\lor$</td><td align="center"><code>\lor</code></td><td align="center"><strong>26</strong></td><td align="center">$\vDash$</td><td align="center"><code>\vDash</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\vee$</td><td align="center"><code>\vee</code></td><td align="center"><strong>27</strong></td><td align="center">$\Vdash$</td><td align="center"><code>\Vdash</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\curlyvee$</td><td align="center"><code>\curlyvee</code></td><td align="center"><strong>28</strong></td><td align="center">$\models$</td><td align="center"><code>\models</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\bigvee$</td><td align="center"><code>\bigvee</code></td><td align="center"><strong>29</strong></td><td align="center">$\Vvdash$</td><td align="center"><code>\Vvdash</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\land$</td><td align="center"><code>\land</code></td><td align="center"><strong>30</strong></td><td align="center">$\nvdash$</td><td align="center"><code>\nvdash</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\wedge$</td><td align="center"><code>\wedge</code></td><td align="center"><strong>31</strong></td><td align="center">$\nVdash$</td><td align="center"><code>\nVdash</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\curlywedge$</td><td align="center"><code>\curlywedge</code></td><td align="center"><strong>32</strong></td><td align="center">$\nvDash$</td><td align="center"><code>\nvDash</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\bigwedge$</td><td align="center"><code>\bigwedge</code></td><td align="center"><strong>33</strong></td><td align="center">$\nVDash$</td><td align="center"><code>\nVDash</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\bar{q}$</td><td align="center"><code>\bar{q}</code></td><td align="center"><strong>34</strong></td><td align="center">$\ulcorner$</td><td align="center"><code>\ulcorner</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\bar{abc}$</td><td align="center"><code>\bar{abc}</code></td><td align="center"><strong>35</strong></td><td align="center">$\urcorner$</td><td align="center"><code>\urcorner</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\overline{q}$</td><td align="center"><code>\overline{q}</code></td><td align="center"><strong>36</strong></td><td align="center">$\llcorner$</td><td align="center"><code>\llcorner</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\overline{abc}$</td><td align="center"><code>\overline{abc}</code></td><td align="center"><strong>37</strong></td><td align="center">$\lrcorner$</td><td align="center"><code>\lrcorner</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\lnot$</td><td align="center"><code>\lnot</code></td><td align="center"></td><td align="center"></td><td align="center"></td></tr>
+</tbody></table>
+<h2 id="集合符号"><a class="header" href="#集合符号">集合符号</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">${ }$</td><td align="center"><code>\{ \}</code></td><td align="center"><strong>23</strong></td><td align="center">$\sqsubset$</td><td align="center"><code>\sqsubset</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\emptyset$</td><td align="center"><code>\emptyset</code></td><td align="center"><strong>24</strong></td><td align="center">$\supset$</td><td align="center"><code>\supset</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\varnothing$</td><td align="center"><code>\varnothing</code></td><td align="center"><strong>25</strong></td><td align="center">$\Supset$</td><td align="center"><code>\Supset</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\in$</td><td align="center"><code>\in</code></td><td align="center"><strong>26</strong></td><td align="center">$\sqsupset$</td><td align="center"><code>\sqsupset</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\notin$</td><td align="center"><code>\notin</code></td><td align="center"><strong>27</strong></td><td align="center">$\subseteq$</td><td align="center"><code>\subseteq</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\ni$</td><td align="center"><code>\ni</code></td><td align="center"><strong>28</strong></td><td align="center">$\nsubseteq$</td><td align="center"><code>\nsubseteq</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\cap$</td><td align="center"><code>\cap</code></td><td align="center"><strong>29</strong></td><td align="center">$\subsetneq$</td><td align="center"><code>\subsetneq</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\Cap$</td><td align="center"><code>\Cap</code></td><td align="center"><strong>30</strong></td><td align="center">$\varsubsetneq$</td><td align="center"><code>\varsubsetneq</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\sqcap$</td><td align="center"><code>\sqcap</code></td><td align="center"><strong>31</strong></td><td align="center">$\sqsubseteq$</td><td align="center"><code>\sqsubseteq</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\bigcap$</td><td align="center"><code>\bigcap</code></td><td align="center"><strong>32</strong></td><td align="center">$\supseteq$</td><td align="center"><code>\supseteq</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\cup$</td><td align="center"><code>\cup</code></td><td align="center"><strong>33</strong></td><td align="center">$\nsupseteq$</td><td align="center"><code>\nsupseteq</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\Cup$</td><td align="center"><code>\Cup</code></td><td align="center"><strong>34</strong></td><td align="center">$\supsetneq$</td><td align="center"><code>\supsetneq</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\sqcup$</td><td align="center"><code>\sqcup</code></td><td align="center"><strong>35</strong></td><td align="center">$\varsupsetneq$</td><td align="center"><code>\varsupsetneq</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\bigcup$</td><td align="center"><code>\bigcup</code></td><td align="center"><strong>36</strong></td><td align="center">$\sqsupseteq$</td><td align="center"><code>\sqsupseteq</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\bigsqcup$</td><td align="center"><code>\bigsqcup</code></td><td align="center"><strong>37</strong></td><td align="center">$\subseteqq$</td><td align="center"><code>\subseteqq</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\uplus$</td><td align="center"><code>\uplus</code></td><td align="center"><strong>38</strong></td><td align="center">$\nsubseteqq$</td><td align="center"><code>\nsubseteqq</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\biguplus$</td><td align="center"><code>\biguplus</code></td><td align="center"><strong>39</strong></td><td align="center">$\subsetneqq$</td><td align="center"><code>\subsetneqq</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\setminus$</td><td align="center"><code>\setminus</code></td><td align="center"><strong>40</strong></td><td align="center">$\varsubsetneqq$</td><td align="center"><code>\varsubsetneqq</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\smallsetminus$</td><td align="center"><code>\smallsetminus</code></td><td align="center"><strong>41</strong></td><td align="center">$\supseteqq$</td><td align="center"><code>\supseteqq</code></td></tr>
+<tr><td align="center"><strong>20</strong></td><td align="center">$\times$</td><td align="center"><code>\times</code></td><td align="center"><strong>42</strong></td><td align="center">$\nsupseteqq$</td><td align="center"><code>\nsupseteqq</code></td></tr>
+<tr><td align="center"><strong>21</strong></td><td align="center">$\subset$</td><td align="center"><code>\subset</code></td><td align="center"><strong>43</strong></td><td align="center">$\supsetneqq$</td><td align="center"><code>\supsetneqq</code></td></tr>
+<tr><td align="center"><strong>22</strong></td><td align="center">$\Subset$</td><td align="center"><code>\Subset</code></td><td align="center"><strong>44</strong></td><td align="center">$\varsupsetneqq$</td><td align="center"><code>\varsupsetneqq</code></td></tr>
+</tbody></table>
+<h2 id="箭头符号"><a class="header" href="#箭头符号">箭头符号</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\Rrightarrow$</td><td align="center"><code>\Rrightarrow</code></td><td align="center"><strong>36</strong></td><td align="center">$\longmapsto$</td><td align="center"><code>\longmapsto</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\Lleftarrow$</td><td align="center"><code>\Lleftarrow</code></td><td align="center"><strong>37</strong></td><td align="center">$\rightharpoonup$</td><td align="center"><code>\rightharpoonup</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\Rightarrow$</td><td align="center"><code>\Rightarrow</code></td><td align="center"><strong>38</strong></td><td align="center">$\rightharpoondown$</td><td align="center"><code>\rightharpoondown</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\nRightarrow$</td><td align="center"><code>\nRightarrow</code></td><td align="center"><strong>39</strong></td><td align="center">$\leftharpoonup$</td><td align="center"><code>\leftharpoonup</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\Longrightarrow$</td><td align="center"><code>\Longrightarrow</code></td><td align="center"><strong>40</strong></td><td align="center">$\leftharpoondown$</td><td align="center"><code>\leftharpoondown</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\implies$</td><td align="center"><code>\implies</code></td><td align="center"><strong>41</strong></td><td align="center">$\upharpoonleft$</td><td align="center"><code>\upharpoonleft</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\Leftarrow$</td><td align="center"><code>\Leftarrow</code></td><td align="center"><strong>42</strong></td><td align="center">$\upharpoonright$</td><td align="center"><code>\upharpoonright</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\nLeftarrow$</td><td align="center"><code>\nLeftarrow</code></td><td align="center"><strong>43</strong></td><td align="center">$\downharpoonleft$</td><td align="center"><code>\downharpoonleft</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\Longleftarrow$</td><td align="center"><code>\Longleftarrow</code></td><td align="center"><strong>44</strong></td><td align="center">$\downharpoonright$</td><td align="center"><code>\downharpoonright</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\Leftrightarrow$</td><td align="center"><code>\Leftrightarrow</code></td><td align="center"><strong>45</strong></td><td align="center">$\rightleftharpoons$</td><td align="center"><code>\rightleftharpoons</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\nLeftrightarrow$</td><td align="center"><code>\nLeftrightarrow</code></td><td align="center"><strong>46</strong></td><td align="center">$\leftrightharpoons$</td><td align="center"><code>\leftrightharpoons</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\Longleftrightarrow$</td><td align="center"><code>\Longleftrightarrow</code></td><td align="center"><strong>47</strong></td><td align="center">$\curvearrowleft$</td><td align="center"><code>\curvearrowleft</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\iff$</td><td align="center"><code>\iff</code></td><td align="center"><strong>48</strong></td><td align="center">$\circlearrowleft$</td><td align="center"><code>\circlearrowleft</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\Uparrow$</td><td align="center"><code>\Uparrow</code></td><td align="center"><strong>49</strong></td><td align="center">$\Lsh$</td><td align="center"><code>\Lsh</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\Downarrow$</td><td align="center"><code>\Downarrow</code></td><td align="center"><strong>50</strong></td><td align="center">$\upuparrows$</td><td align="center"><code>\upuparrows</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\Updownarrow$</td><td align="center"><code>\Updownarrow</code></td><td align="center"><strong>51</strong></td><td align="center">$\rightrightarrows$</td><td align="center"><code>\rightrightarrows</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\rightarrow$</td><td align="center"><code>\rightarrow</code></td><td align="center"><strong>52</strong></td><td align="center">$\rightleftarrows$</td><td align="center"><code>\rightleftarrows</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$\to$</td><td align="center"><code>\to</code></td><td align="center"><strong>53</strong></td><td align="center">$\rightarrowtail$</td><td align="center"><code>\rightarrowtail</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\nrightarrow$</td><td align="center"><code>\nrightarrow</code></td><td align="center"><strong>54</strong></td><td align="center">$\looparrowright$</td><td align="center"><code>\looparrowright</code></td></tr>
+<tr><td align="center"><strong>20</strong></td><td align="center">$\longrightarrow$</td><td align="center"><code>\longrightarrow</code></td><td align="center"><strong>55</strong></td><td align="center">$\curvearrowright$</td><td align="center"><code>\curvearrowright</code></td></tr>
+<tr><td align="center"><strong>21</strong></td><td align="center">$\leftarrow$</td><td align="center"><code>\leftarrow</code></td><td align="center"><strong>56</strong></td><td align="center">$\circlearrowright$</td><td align="center"><code>\circlearrowright</code></td></tr>
+<tr><td align="center"><strong>22</strong></td><td align="center">$\gets$</td><td align="center"><code>\gets</code></td><td align="center"><strong>57</strong></td><td align="center">$\Rsh$</td><td align="center"><code>\Rsh</code></td></tr>
+<tr><td align="center"><strong>23</strong></td><td align="center">$\nleftarrow$</td><td align="center"><code>\nleftarrow</code></td><td align="center"><strong>58</strong></td><td align="center">$\downdownarrows$</td><td align="center"><code>\downdownarrows</code></td></tr>
+<tr><td align="center"><strong>24</strong></td><td align="center">$\longleftarrow$</td><td align="center"><code>\longleftarrow</code></td><td align="center"><strong>59</strong></td><td align="center">$\leftleftarrows$</td><td align="center"><code>\leftleftarrows</code></td></tr>
+<tr><td align="center"><strong>25</strong></td><td align="center">$\leftrightarrow$</td><td align="center"><code>\leftrightarrow</code></td><td align="center"><strong>60</strong></td><td align="center">$\leftrightarrows$</td><td align="center"><code>\leftrightarrows</code></td></tr>
+<tr><td align="center"><strong>26</strong></td><td align="center">$\nleftrightarrow$</td><td align="center"><code>\nleftrightarrow</code></td><td align="center"><strong>61</strong></td><td align="center">$\leftarrowtail$</td><td align="center"><code>\leftarrowtail</code></td></tr>
+<tr><td align="center"><strong>27</strong></td><td align="center">$\longleftrightarrow$</td><td align="center"><code>\longleftrightarrow</code></td><td align="center"><strong>62</strong></td><td align="center">$\looparrowleft$</td><td align="center"><code>\looparrowleft</code></td></tr>
+<tr><td align="center"><strong>28</strong></td><td align="center">$\uparrow$</td><td align="center"><code>\uparrow</code></td><td align="center"><strong>63</strong></td><td align="center">$\hookrightarrow$</td><td align="center"><code>\hookrightarrow</code></td></tr>
+<tr><td align="center"><strong>29</strong></td><td align="center">$\downarrow$</td><td align="center"><code>\downarrow</code></td><td align="center"><strong>64</strong></td><td align="center">$\hookleftarrow$</td><td align="center"><code>\hookleftarrow</code></td></tr>
+<tr><td align="center"><strong>30</strong></td><td align="center">$\updownarrow$</td><td align="center"><code>\updownarrow</code></td><td align="center"><strong>65</strong></td><td align="center">$\multimap$</td><td align="center"><code>\multimap</code></td></tr>
+<tr><td align="center"><strong>31</strong></td><td align="center">$\nearrow$</td><td align="center"><code>\nearrow</code></td><td align="center"><strong>66</strong></td><td align="center">$\leftrightsquigarrow$</td><td align="center"><code>\leftrightsquigarrow</code></td></tr>
+<tr><td align="center"><strong>32</strong></td><td align="center">$\swarrow$</td><td align="center"><code>\swarrow</code></td><td align="center"><strong>67</strong></td><td align="center">$\rightsquigarrow$</td><td align="center"><code>\rightsquigarrow</code></td></tr>
+<tr><td align="center"><strong>33</strong></td><td align="center">$\nwarrow$</td><td align="center"><code>\nwarrow</code></td><td align="center"><strong>68</strong></td><td align="center">$\twoheadrightarrow$</td><td align="center"><code>\twoheadrightarrow</code></td></tr>
+<tr><td align="center"><strong>34</strong></td><td align="center">$\searrow$</td><td align="center"><code>\searrow</code></td><td align="center"><strong>69</strong></td><td align="center">$\twoheadleftarrow$</td><td align="center"><code>\twoheadleftarrow</code></td></tr>
+<tr><td align="center"><strong>35</strong></td><td align="center">$\mapsto$</td><td align="center"><code>\mapsto</code></td><td align="center"></td><td align="center"></td><td align="center"></td></tr>
+</tbody></table>
+<h2 id="特殊符号"><a class="header" href="#特殊符号">特殊符号</a></h2>
+<table><thead><tr><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th><th align="center">序号</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center"><strong>1</strong></td><td align="center">$\infty$</td><td align="center"><code>\infty</code></td><td align="center"><strong>33</strong></td><td align="center">$\flat$</td><td align="center"><code>\flat</code></td></tr>
+<tr><td align="center"><strong>2</strong></td><td align="center">$\aleph$</td><td align="center"><code>\aleph</code></td><td align="center"><strong>34</strong></td><td align="center">$\natural$</td><td align="center"><code>\natural</code></td></tr>
+<tr><td align="center"><strong>3</strong></td><td align="center">$\complement$</td><td align="center"><code>\complement</code></td><td align="center"><strong>35</strong></td><td align="center">$\sharp$</td><td align="center"><code>\sharp</code></td></tr>
+<tr><td align="center"><strong>4</strong></td><td align="center">$\backepsilon$</td><td align="center"><code>\backepsilon</code></td><td align="center"><strong>36</strong></td><td align="center">$\diagup$</td><td align="center"><code>\diagup</code></td></tr>
+<tr><td align="center"><strong>5</strong></td><td align="center">$\eth$</td><td align="center"><code>\eth</code></td><td align="center"><strong>37</strong></td><td align="center">$\diagdown$</td><td align="center"><code>\diagdown</code></td></tr>
+<tr><td align="center"><strong>6</strong></td><td align="center">$\Finv$</td><td align="center"><code>\Finv</code></td><td align="center"><strong>38</strong></td><td align="center">$\centerdot$</td><td align="center"><code>\centerdot</code></td></tr>
+<tr><td align="center"><strong>7</strong></td><td align="center">$\hbar$</td><td align="center"><code>\hbar</code></td><td align="center"><strong>39</strong></td><td align="center">$\ltimes$</td><td align="center"><code>\ltimes</code></td></tr>
+<tr><td align="center"><strong>8</strong></td><td align="center">$\Im$</td><td align="center"><code>\Im</code></td><td align="center"><strong>40</strong></td><td align="center">$\rtimes$</td><td align="center"><code>\rtimes</code></td></tr>
+<tr><td align="center"><strong>9</strong></td><td align="center">$\imath$</td><td align="center"><code>\imath</code></td><td align="center"><strong>41</strong></td><td align="center">$\leftthreetimes$</td><td align="center"><code>\leftthreetimes</code></td></tr>
+<tr><td align="center"><strong>10</strong></td><td align="center">$\jmath$</td><td align="center"><code>\jmath</code></td><td align="center"><strong>42</strong></td><td align="center">$\rightthreetimes$</td><td align="center"><code>\rightthreetimes</code></td></tr>
+<tr><td align="center"><strong>11</strong></td><td align="center">$\Bbbk$</td><td align="center"><code>\Bbbk</code></td><td align="center"><strong>43</strong></td><td align="center">$\eqcirc$</td><td align="center"><code>\eqcirc</code></td></tr>
+<tr><td align="center"><strong>12</strong></td><td align="center">$\ell$</td><td align="center"><code>\ell</code></td><td align="center"><strong>44</strong></td><td align="center">$\circeq$</td><td align="center"><code>\circeq</code></td></tr>
+<tr><td align="center"><strong>13</strong></td><td align="center">$\mho$</td><td align="center"><code>\mho</code></td><td align="center"><strong>45</strong></td><td align="center">$\triangleq$</td><td align="center"><code>\triangleq</code></td></tr>
+<tr><td align="center"><strong>14</strong></td><td align="center">$\wp$</td><td align="center"><code>\wp</code></td><td align="center"><strong>46</strong></td><td align="center">$\bumpeq$</td><td align="center"><code>\bumpeq</code></td></tr>
+<tr><td align="center"><strong>15</strong></td><td align="center">$\Re$</td><td align="center"><code>\Re</code></td><td align="center"><strong>47</strong></td><td align="center">$\Bumpeq$</td><td align="center"><code>\Bumpeq</code></td></tr>
+<tr><td align="center"><strong>16</strong></td><td align="center">$\circledS$</td><td align="center"><code>\circledS</code></td><td align="center"><strong>48</strong></td><td align="center">$\doteqdot$</td><td align="center"><code>\doteqdot</code></td></tr>
+<tr><td align="center"><strong>17</strong></td><td align="center">$\amalg$</td><td align="center"><code>\amalg</code></td><td align="center"><strong>49</strong></td><td align="center">$\risingdotseq$</td><td align="center"><code>\risingdotseq</code></td></tr>
+<tr><td align="center"><strong>18</strong></td><td align="center">$%$</td><td align="center"><code>\%</code></td><td align="center"><strong>50</strong></td><td align="center">$\fallingdotseq$</td><td align="center"><code>\fallingdotseq</code></td></tr>
+<tr><td align="center"><strong>19</strong></td><td align="center">$\dagger$</td><td align="center"><code>\dagger</code></td><td align="center"><strong>51</strong></td><td align="center">$\intercal$</td><td align="center"><code>\intercal</code></td></tr>
+<tr><td align="center"><strong>20</strong></td><td align="center">$\ddagger$</td><td align="center"><code>\ddagger</code></td><td align="center"><strong>52</strong></td><td align="center">$\barwedge$</td><td align="center"><code>\barwedge</code></td></tr>
+<tr><td align="center"><strong>21</strong></td><td align="center">$\ldots$</td><td align="center"><code>\ldots</code></td><td align="center"><strong>53</strong></td><td align="center">$\veebar$</td><td align="center"><code>\veebar</code></td></tr>
+<tr><td align="center"><strong>22</strong></td><td align="center">$\cdots$</td><td align="center"><code>\cdots</code></td><td align="center"><strong>54</strong></td><td align="center">$\doublebarwedge$</td><td align="center"><code>\doublebarwedge</code></td></tr>
+<tr><td align="center"><strong>23</strong></td><td align="center">$\smile$</td><td align="center"><code>\smile</code></td><td align="center"><strong>55</strong></td><td align="center">$\between$</td><td align="center"><code>\between</code></td></tr>
+<tr><td align="center"><strong>24</strong></td><td align="center">$\frown$</td><td align="center"><code>\frown</code></td><td align="center"><strong>56</strong></td><td align="center">$\pitchfork$</td><td align="center"><code>\pitchfork</code></td></tr>
+<tr><td align="center"><strong>25</strong></td><td align="center">$\wr$</td><td align="center"><code>\wr</code></td><td align="center"><strong>57</strong></td><td align="center">$\vartriangleleft$</td><td align="center"><code>\vartriangleleft</code></td></tr>
+<tr><td align="center"><strong>26</strong></td><td align="center">$\triangleleft$</td><td align="center"><code>\triangleleft</code></td><td align="center"><strong>58</strong></td><td align="center">$\ntriangleleft$</td><td align="center"><code>\ntriangleleft</code></td></tr>
+<tr><td align="center"><strong>27</strong></td><td align="center">$\triangleright$</td><td align="center"><code>\triangleright</code></td><td align="center"><strong>59</strong></td><td align="center">$\vartriangleright$</td><td align="center"><code>\vartriangleright</code></td></tr>
+<tr><td align="center"><strong>28</strong></td><td align="center">$\diamondsuit$</td><td align="center"><code>\diamondsuit</code></td><td align="center"><strong>60</strong></td><td align="center">$\ntriangleright$</td><td align="center"><code>\ntriangleright</code></td></tr>
+<tr><td align="center"><strong>29</strong></td><td align="center">$\heartsuit$</td><td align="center"><code>\heartsuit</code></td><td align="center"><strong>61</strong></td><td align="center">$\trianglelefteq$</td><td align="center"><code>\trianglelefteq</code></td></tr>
+<tr><td align="center"><strong>30</strong></td><td align="center">$\clubsuit$</td><td align="center"><code>\clubsuit</code></td><td align="center"><strong>62</strong></td><td align="center">$\ntrianglelefteq$</td><td align="center"><code>\ntrianglelefteq</code></td></tr>
+<tr><td align="center"><strong>31</strong></td><td align="center">$\spadesuit$</td><td align="center"><code>\spadesuit</code></td><td align="center"><strong>63</strong></td><td align="center">$\trianglerighteq$</td><td align="center"><code>\trianglerighteq</code></td></tr>
+<tr><td align="center"><strong>32</strong></td><td align="center">$\Game$</td><td align="center"><code>\Game</code></td><td align="center"><strong>64</strong></td><td align="center">$\ntrianglerighteq$</td><td align="center"><code>\ntrianglerighteq</code></td></tr>
+</tbody></table>
+<h2 id="分数"><a class="header" href="#分数">分数</a></h2>
+<table><thead><tr><th align="left">类型</th><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left"><strong>分数</strong></td><td align="left">$\frac{2}{4}x=0.5x or {2 \over 4}x=0.5x$</td><td align="left"><code>\frac{2}{4}x=0.5x or {2 \over 4}x=0.5x</code></td></tr>
+<tr><td align="left"><strong>小型分数</strong></td><td align="left">$\tfrac{2}{4}x = 0.5x$</td><td align="left"><code>\tfrac{2}{4}x = 0.5x</code></td></tr>
+<tr><td align="left"><strong>大型分数</strong> （不嵌套）</td><td align="left">$\dfrac{2}{4} = 0.5 \qquad \dfrac{2}{c + \dfrac{2}{d + \dfrac{2}{4}}} = a$</td><td align="left"><code>\dfrac{2}{4} = 0.5 \qquad \dfrac{2}{c + \dfrac{2}{d + \dfrac{2}{4}}} = a</code></td></tr>
+<tr><td align="left"><strong>大型分数</strong> （嵌套）</td><td align="left">$\cfrac{2}{c + \cfrac{2}{d + \cfrac{2}{4}}} = a$</td><td align="left"><code>\cfrac{2}{c + \cfrac{2}{d + \cfrac{2}{4}}} = a</code></td></tr>
+</tbody></table>
+<h2 id="数值函数"><a class="header" href="#数值函数">数值函数</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\exp_a b = a^b, \exp b = e^b, 10^m$</td><td align="left"><code>\exp_a b = a^b, \exp b = e^b, 10^m</code></td></tr>
+<tr><td align="left">$\ln c, \lg d = \log e, \log_{10} f$</td><td align="left"><code>\ln c, \lg d = \log e, \log_{10} f</code></td></tr>
+<tr><td align="left">$\sin a, \cos b, \tan c, \cot d, \sec e, \csc f$</td><td align="left"><code>\sin a, \cos b, \tan c, \cot d, \sec e, \csc f</code></td></tr>
+<tr><td align="left">$\arcsin a, \arccos b, \arctan c$</td><td align="left"><code>\arcsin a, \arccos b, \arctan c</code></td></tr>
+<tr><td align="left">$\operatorname{arccot} d, \operatorname{arcsec} e, \operatorname{arccsc} f$</td><td align="left"><code>\operatorname{arccot} d, \operatorname{arcsec} e, \operatorname{arccsc} f</code></td></tr>
+<tr><td align="left">$\sinh a, \cosh b, \tanh c, \coth d$</td><td align="left"><code>\sinh a, \cosh b, \tanh c, \coth d</code></td></tr>
+<tr><td align="left">$\operatorname{sh}k, \operatorname{ch}l, \operatorname{th}m, \operatorname{coth}n$</td><td align="left"><code>\operatorname{sh}k, \operatorname{ch}l, \operatorname{th}m, \operatorname{coth}n</code></td></tr>
+<tr><td align="left">$\operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q$</td><td align="left"><code>\operatorname{argsh}o, \operatorname{argch}p, \operatorname{argth}q</code></td></tr>
+<tr><td align="left">$\operatorname{sgn}r$</td><td align="left"><code>\operatorname{sgn}r</code></td></tr>
+<tr><td align="left">$\left\vert s \right\vert$</td><td align="left"><code>\left\vert s \right\vert</code></td></tr>
+<tr><td align="left">$\min(x,y), \max(x,y)$</td><td align="left"><code>\min(x,y), \max(x,y)</code></td></tr>
+</tbody></table>
+<p>如果需要使用特殊的函数符号，那么可以采用 <code>\operatorname{}</code> 命令进行自定义：</p>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\operatorname{mydefine}x$</td><td align="left"><code>\operatorname{mydefine}x</code></td></tr>
+</tbody></table>
+<h2 id="根式"><a class="header" href="#根式">根式</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$ \surd $</td><td align="left"><code>\surd</code></td><td align="left">$ \sqrt[n]{\pi} $</td><td align="left"><code>\sqrt[n]{\pi}</code></td></tr>
+<tr><td align="left">$ \sqrt{\pi} $</td><td align="left"><code>\sqrt{\pi}</code></td><td align="left">$ \sqrt[3]{\frac{x^3+y^3}{2}}* $</td><td align="left"><code>\sqrt[3]{\frac{x^3+y^3}{2}}*</code>_</td></tr>
+</tbody></table>
+<h2 id="微分与导数"><a class="header" href="#微分与导数">微分与导数</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$dt, \mathrm{d}t, \partial t, \nabla\psi$</td><td align="left"><code>dt, \mathrm{d}t, \partial t, \nabla\psi</code></td></tr>
+<tr><td align="left">$dy/dx, \mathrm{d}y/\mathrm{d}x, \frac{dy}{dx}, \frac{\mathrm{d}y}{\mathrm{d}x}, \frac{\partial^2}{\partial x_1\partial x_2}y$</td><td align="left"><code>dy/dx, \mathrm{d}y/\mathrm{d}x, \frac{dy}{dx}, \frac{\mathrm{d}y}{\mathrm{d}x}, \frac{\partial^2}{\partial x_1\partial x_2}y</code></td></tr>
+<tr><td align="left">$\prime, \backprime, f^\prime, f', f'', f^{(3)}, \dot y, \ddot y$</td><td align="left"><code>\prime, \backprime, f^\prime, f', f'', f^{(3)}, \dot y, \ddot y</code></td></tr>
+</tbody></table>
+<h2 id="模运算"><a class="header" href="#模运算">模运算</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$s_k \equiv 0 \pmod{m}$</td><td align="left"><code>s_k \equiv 0 \pmod{m}</code></td></tr>
+<tr><td align="left">$a \bmod b$</td><td align="left"><code>a \bmod b</code></td></tr>
+<tr><td align="left">$\gcd(m, n), \operatorname{lcm}(m, n)$</td><td align="left"><code>\gcd(m, n), \operatorname{lcm}(m, n)</code></td></tr>
+<tr><td align="left">$\mid, \nmid, \shortmid, \nshortmid$</td><td align="left"><code>\mid, \nmid, \shortmid, \nshortmid</code></td></tr>
+</tbody></table>
+<h2 id="极限"><a class="header" href="#极限">极限</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\lim_{n \to \infty}x_n$</td><td align="left"><code>\lim_{n \to \infty}x_n</code></td></tr>
+<tr><td align="left">$\textstyle \lim_{n \to \infty}x_n$</td><td align="left"><code>\textstyle \lim_{n \to \infty}x_n</code></td></tr>
+</tbody></table>
+<h2 id="范围与预测"><a class="header" href="#范围与预测">范围与预测</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\min x, \max y, \inf s, \sup t$</td><td align="left"><code>\min x, \max y, \inf s, \sup t</code></td></tr>
+<tr><td align="left">$\lim u, \liminf v, \limsup w$</td><td align="left"><code>\lim u, \liminf v, \limsup w</code></td></tr>
+<tr><td align="left">$\dim p, \deg q, \det m, \ker\phi$</td><td align="left"><code>\dim p, \deg q, \det m, \ker\phi</code></td></tr>
+<tr><td align="left">$\Pr j, \hom l, \lVert z \rVert, \arg z$</td><td align="left"><code>\Pr j, \hom l, \lVert z \rVert, \arg z</code></td></tr>
+</tbody></table>
+<h2 id="积分"><a class="header" href="#积分">积分</a></h2>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\int\limits_{1}^{3}\frac{e^3/x}{x^2}, dx$</td><td align="left"><code>\int\limits_{1}^{3}\frac{e^3/x}{x^2}\, dx</code></td></tr>
+<tr><td align="left">$\int_{1}^{3}\frac{e^3/x}{x^2}, dx$</td><td align="left"><code>\int_{1}^{3}\frac{e^3/x}{x^2}\, dx</code></td></tr>
+<tr><td align="left">$\textstyle \int\limits_{-N}^{N} e^x dx$</td><td align="left"><code>\textstyle \int\limits_{-N}^{N} e^x dx</code></td></tr>
+<tr><td align="left">$\textstyle \int_{-N}^{N} e^x dx$</td><td align="left"><code>\textstyle \int_{-N}^{N} e^x dx</code></td></tr>
+<tr><td align="left">$\iint\limits_D dx,dy$</td><td align="left"><code>\iint\limits_D dx\,dy</code></td></tr>
+<tr><td align="left">$\iiint\limits_E dx,dy,dz$</td><td align="left"><code>\iiint\limits_E dx\,dy\,dz</code></td></tr>
+<tr><td align="left">$\iiiint\limits_F dx,dy,dz,dt$</td><td align="left"><code>\iiiint\limits_F dx\,dy\,dz\,dt</code></td></tr>
+<tr><td align="left">$\int_{(x,y)\in C} x^3, dx + 4y^2, dy$</td><td align="left"><code>\int_{(x,y)\in C} x^3\, dx + 4y^2\, dy</code></td></tr>
+<tr><td align="left">$\oint_{(x,y)\in C} x^3, dx + 4y^2, dy$</td><td align="left"><code>\oint_{(x,y)\in C} x^3\, dx + 4y^2\, dy</code></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>注意</strong>：积分符号采用 <code>\int\_{}^{}</code> 命令调用，双重积分符号采用 <code>\iint\_{}^{}</code>，以此类推，最高可以支持四重积分。</p>
+</blockquote>
+<p>曲线积分可以使用 <code>\oint</code> 命令调用，但是 MathJax 并不支持该语法，因此在开启了 Unicode 扩展的前提下，可以改为采用 <code>\unicode{}</code> 命令调用：</p>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th><th align="left">描述</th></tr></thead><tbody>
+<tr><td align="left">$\unicode{8751} \unicode{x222F}_C$</td><td align="left"><code>\unicode{8751} \unicode{x222F}_C</code></td><td align="left">曲面积分符号的 Unicode 码十进制为 <code>8751</code>,十六进制为 <code>x222F</code>；</td></tr>
+<tr><td align="left">$\unicode{8752} \unicode{x2230}_C$</td><td align="left"><code>\unicode{8752} \unicode{x2230}_C</code></td><td align="left">三维曲面积分符号的 Unicode 码十进制为 <code>8752</code>,十六进制为 <code>x2230</code>；</td></tr>
+<tr><td align="left">$\unicode{8753} \unicode{x2231}_c \unicode{8754} \unicode{x2232}_c \unicode{8755} \unicode{x2233}_c$</td><td align="left"><code>\unicode{8753} \unicode{x2231}_c \unicode{8754} \unicode{x2232}_c \unicode{8755} \unicode{x2233}_c</code></td><td align="left">其它积分符号；</td></tr>
+</tbody></table>
+<h2 id="大型运算符"><a class="header" href="#大型运算符">大型运算符</a></h2>
+<table><thead><tr><th align="left">分类</th><th align="center">符号</th><th align="left">LaTeX</th><th align="center">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left"><strong>求和</strong></td><td align="center">$\sum_{a}^{b}$</td><td align="left"><code>\sum_{a}^{b}</code></td><td align="center">$\textstyle \sum_{a}^{b}$</td><td align="left"><code>\textstyle \sum_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>连乘积</strong></td><td align="center">$\prod_{a}^{b}$</td><td align="left"><code>\prod_{a}^{b}</code></td><td align="center">$\textstyle \prod_{a}^{b}$</td><td align="left"><code>\textstyle \prod_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>余积</strong></td><td align="center">$\coprod_{a}^{b}$</td><td align="left"><code>\coprod_{a}^{b}</code></td><td align="center">$\textstyle \coprod_{a}^{b}$</td><td align="left"><code>\textstyle \coprod_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>并集</strong></td><td align="center">$\bigcup_{a}^{b}$</td><td align="left"><code>\bigcup_{a}^{b}</code></td><td align="center">$\textstyle \bigcup_{a}^{b}$</td><td align="left"><code>\textstyle \bigcup_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>交集</strong></td><td align="center">$\bigcap_{a}^{b}$</td><td align="left"><code>\bigcap_{a}^{b}</code></td><td align="center">$\textstyle \bigcap_{a}^{b}$</td><td align="left"><code>\textstyle \bigcap_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>析取</strong></td><td align="center">$\bigvee_{a}^{b}$</td><td align="left"><code>\bigvee_{a}^{b}</code></td><td align="center">$\textstyle \bigvee_{a}^{b}$</td><td align="left"><code>\textstyle \bigvee_{a}^{b}</code></td></tr>
+<tr><td align="left"><strong>合取</strong></td><td align="center">$\bigwedge_{a}^{b}$</td><td align="left"><code>\bigwedge_{a}^{b}</code></td><td align="center">$\textstyle \bigwedge_{a}^{b}$</td><td align="left"><code>\textstyle \bigwedge_{a}^{b}</code></td></tr>
+</tbody></table>
+<h2 id="上下标"><a class="header" href="#上下标">上下标</a></h2>
+<table><thead><tr><th align="center">类型</th><th align="center">符号</th><th align="left">代码</th></tr></thead><tbody>
+<tr><td align="center"><strong>上标</strong></td><td align="center">$a^2<code> </code>a^{x+3}$</td><td align="left"><code>a^2</code> <code>a^{x+3}</code></td></tr>
+<tr><td align="center"><strong>下标</strong></td><td align="center">$a_2$</td><td align="left"><code>a_2</code></td></tr>
+<tr><td align="center"><strong>组合</strong></td><td align="center">$10^{30} a^{2+2}<code> </code>a{i,j} b{f'}$</td><td align="left"><code>10^{30} a^{2+2}</code> <code>a{i,j} b{f'}</code></td></tr>
+<tr><td align="center"><strong>上下标混合</strong></td><td align="center">$x_2^3<code> </code>{x_2}^3$</td><td align="left"><code>x_2^3</code> <code>{x_2}^3</code></td></tr>
+<tr><td align="center"><strong>上标的上标</strong></td><td align="center">$10^{10^{8}}$</td><td align="left"><code>10^{10^{8}}</code></td></tr>
+<tr><td align="center"><strong>混合标识</strong></td><td align="center">$\sideset{1^2}{3^4}X_a^b<code> </code>{}_1^2!\Omega_3^4$</td><td align="left"><code>\sideset{1^2}{3^4}X_a^b</code> <code>{}_1^2!\Omega_3^4</code></td></tr>
+<tr><td align="center"><strong>顶标底标</strong></td><td align="center">$\overset{\alpha}{\omega}<code> </code>\underset{\alpha}{\omega}<code> </code>\overset{\alpha}{\underset{\gamma}{\omega}}<code> </code>\stackrel{\alpha}{\omega}$</td><td align="left"><code>\overset{\alpha}{\omega}</code> <code>\underset{\alpha}{\omega}</code> <code>\overset{\alpha}{\underset{\gamma}{\omega}}</code> <code>\stackrel{\alpha}{\omega}</code></td></tr>
+<tr><td align="center"><strong>导数</strong></td><td align="center">$x', y'', f', f''<code> </code>x^\prime, y^{\prime\prime}$</td><td align="left"><code>x', y'', f', f''</code> <code>x^\prime, y^{\prime\prime}</code></td></tr>
+<tr><td align="center"><strong>导数点</strong></td><td align="center">$\dot{x}, \ddot{x}$</td><td align="left"><code>\dot{x}, \ddot{x}</code></td></tr>
+<tr><td align="center"><strong>上下划线与向量</strong></td><td align="center">$\hat a \ \bar b \ \vec c<code> </code>\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f}<code> </code>\overline{g h i} \ \underline{j k l}$</td><td align="left"><code>\hat a \ \bar b \ \vec c</code> <code>\overrightarrow{a b} \ \overleftarrow{c d} \ \widehat{d e f}</code> <code>\overline{g h i} \ \underline{j k l}</code></td></tr>
+<tr><td align="center"><strong>弧度</strong></td><td align="center">$\overset{\frown} {AB}$</td><td align="left"><code>\overset{\frown} {AB}</code></td></tr>
+<tr><td align="center"><strong>箭头</strong></td><td align="center">$A \xleftarrow{n+\mu-1} B \xrightarrow[T]{n\pm i-1} C$</td><td align="left"><code>A \xleftarrow{n+\mu-1} B \xrightarrow[T]{n\pm i-1} C</code></td></tr>
+<tr><td align="center"><strong>大括号</strong></td><td align="center">$\overbrace{ 1+2+\cdots+100 }^{5050}$</td><td align="left"><code>\overbrace{ 1+2+\cdots+100 }^{5050}</code></td></tr>
+<tr><td align="center"><strong>底部大括号</strong></td><td align="center">$\underbrace{ a+b+\cdots+z }_{26}$</td><td align="left"><code>\underbrace{ a+b+\cdots+z }_{26}</code></td></tr>
+<tr><td align="center"><strong>求和运算</strong></td><td align="center">$\sum_{k=1}^N k^2$</td><td align="left"><code>\sum_{k=1}^N k^2</code></td></tr>
+<tr><td align="center"><strong>文本模式下的求和运算</strong></td><td align="center">$\textstyle \sum_{k=1}^N k^2$</td><td align="left"><code>\textstyle \sum_{k=1}^N k^2</code></td></tr>
+<tr><td align="center"><strong>分式中的求和运算</strong></td><td align="center">$\frac{\sum_{k=1}^N k^2}{a}$</td><td align="left"><code>\frac{\sum_{k=1}^N k^2}{a}</code></td></tr>
+<tr><td align="center"><strong>分式中的求和运算</strong></td><td align="center">$\frac{\displaystyle \sum_{k=1}^N k^2}{a}$</td><td align="left"><code>\frac{\displaystyle \sum_{k=1}^N k^2}{a}</code></td></tr>
+<tr><td align="center"><strong>分式中的求和运算</strong></td><td align="center">$\frac{\sum\limits^{^N}_{k=1} k^2}{a}$</td><td align="left"><code>\frac{\sum\limits^{^N}_{k=1} k^2}{a}</code></td></tr>
+<tr><td align="center"><strong>乘积运算</strong></td><td align="center">$\prod_{i=1}^N x_i$</td><td align="left"><code>\prod_{i=1}^N x_i</code></td></tr>
+<tr><td align="center"><strong>乘积运算</strong></td><td align="center">$\textstyle \prod_{i=1}^N x_i$</td><td align="left"><code>\textstyle \prod_{i=1}^N x_i</code></td></tr>
+<tr><td align="center"><strong>副乘运算</strong></td><td align="center">$\coprod_{i=1}^N x_i$</td><td align="left"><code>\coprod_{i=1}^N x_i</code></td></tr>
+<tr><td align="center"><strong>副乘运算</strong></td><td align="center">$\textstyle \coprod_{i=1}^N x_i$</td><td align="left"><code>\textstyle \coprod_{i=1}^N x_i</code></td></tr>
+<tr><td align="center"><strong>极限</strong></td><td align="center">$\lim_{n \to \infty}x_n$</td><td align="left"><code>\lim_{n \to \infty}x_n</code></td></tr>
+<tr><td align="center"><strong>极限</strong></td><td align="center">$\textstyle \lim_{n \to \infty}x_n$</td><td align="left"><code>\textstyle \lim_{n \to \infty}x_n</code></td></tr>
+<tr><td align="center"><strong>积分</strong></td><td align="center">$\int\limits_{1}^{3}\frac{e^3/x}{x^2}, dx$</td><td align="left"><code>\int\limits_{1}^{3}\frac{e^3/x}{x^2}\, dx</code></td></tr>
+<tr><td align="center"><strong>积分</strong></td><td align="center">$\int_{1}^{3}\frac{e^3/x}{x^2}, dx$</td><td align="left"><code>\int_{1}^{3}\frac{e^3/x}{x^2}\, dx</code></td></tr>
+<tr><td align="center"><strong>积分</strong></td><td align="center">$\textstyle \int\limits_{-N}^{N} e^x dx$</td><td align="left"><code>\textstyle \int\limits_{-N}^{N} e^x dx</code></td></tr>
+<tr><td align="center"><strong>积分</strong></td><td align="center">$\textstyle \int_{-N}^{N} e^x dx$</td><td align="left"><code>\textstyle \int_{-N}^{N} e^x dx</code></td></tr>
+<tr><td align="center"><strong>双重积分</strong></td><td align="center">$\iint\limits_D dx,dy$</td><td align="left"><code>\iint\limits_D dx\,dy</code></td></tr>
+<tr><td align="center"><strong>三重积分</strong></td><td align="center">$\iiint\limits_E dx,dy,dz$</td><td align="left"><code>\iiint\limits_E dx\,dy\,dz</code></td></tr>
+<tr><td align="center"><strong>四重积分</strong></td><td align="center">$\iiiint\limits_F dx,dy,dz,dt$</td><td align="left"><code>\iiiint\limits_F dx\,dy\,dz\,dt</code></td></tr>
+<tr><td align="center"><strong>路径积分</strong></td><td align="center">$\int_{(x,y)\in C} x^3, dx + 4y^2, dy$</td><td align="left"><code>\int_{(x,y)\in C} x^3\, dx + 4y^2\, dy</code></td></tr>
+<tr><td align="center"><strong>环路积分</strong></td><td align="center">$\oint_{(x,y)\in C} x^3, dx + 4y^2, dy$</td><td align="left"><code>\oint_{(x,y)\in C} x^3\, dx + 4y^2\, dy</code></td></tr>
+<tr><td align="center"><strong>交集</strong></td><td align="center">$\bigcap_{i=1}^n E_i$</td><td align="left"><code>\bigcap_{i=1}^n E_i</code></td></tr>
+<tr><td align="center"><strong>并集</strong></td><td align="center">$\bigcup_{i=1}^n E_i$</td><td align="left"><code>\bigcup_{i=1}^n E_i</code></td></tr>
+</tbody></table>
+<h2 id="二项式系数"><a class="header" href="#二项式系数">二项式系数</a></h2>
+<table><thead><tr><th align="left">类型</th><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">二项式系数</td><td align="left">$\binom{n}{k}$</td><td align="left"><code>\binom{n}{k}</code></td></tr>
+<tr><td align="left">小型二项式系数</td><td align="left">$\tbinom{n}{k}$</td><td align="left"><code>\tbinom{n}{k}</code></td></tr>
+<tr><td align="left">大型二项式系数</td><td align="left">$\dbinom{n}{k}$</td><td align="left"><code>\dbinom{n}{k}</code></td></tr>
+</tbody></table>
+<h2 id="矩阵"><a class="header" href="#矩阵">矩阵</a></h2>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\begin{matrix}x &amp; y \z &amp; v\end{matrix}$</td><td align="center"><code>\begin{matrix}x &amp; y \\z &amp; v\end{matrix}</code></td></tr>
+<tr><td align="center">$yzv$</td><td align="center">xyzv|</td></tr>
+<tr><td align="center">$\begin{Vmatrix}x &amp; y \z &amp; v\end{Vmatrix}$</td><td align="center"><code>\begin{Vmatrix}x &amp; y \\z &amp; v\end{Vmatrix}</code></td></tr>
+<tr><td align="center">$\begin{bmatrix}0 &amp; \cdots &amp; 0 \\vdots &amp; \ddots &amp; \vdots \0 &amp; \cdots &amp; 0\end{bmatrix}$</td><td align="center"><code>\begin{bmatrix}0 &amp; \cdots &amp; 0 \\\vdots &amp; \ddots &amp; \vdots \\0 &amp; \cdots &amp; 0\end{bmatrix}</code></td></tr>
+<tr><td align="center">$\begin{Bmatrix}x &amp; y \z &amp; v\end{Bmatrix}$</td><td align="center"><code>\begin{Bmatrix}x &amp; y \\z &amp; v\end{Bmatrix}</code></td></tr>
+<tr><td align="center">$\begin{pmatrix}x &amp; y \z &amp; v\end{pmatrix}$</td><td align="center"><code>\begin{pmatrix}x &amp; y \\z &amp; v\end{pmatrix}</code></td></tr>
+<tr><td align="center">$\bigl( \begin{smallmatrix}a&amp;b\c&amp;d\end{smallmatrix} \bigr)$</td><td align="center"><code>\bigl( \begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix} \bigr)</code></td></tr>
+</tbody></table>
+<h2 id="数组"><a class="header" href="#数组">数组</a></h2>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\begin{array}{</td><td align="center">c</td></tr>
+</tbody></table>
+<h2 id="方程与方程组"><a class="header" href="#方程与方程组">方程与方程组</a></h2>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\begin{cases}3x + 5y + z \7x - 2y + 4z \-6x + 3y + 2z\end{cases}$</td><td align="center"><code>\begin{cases}3x + 5y + z \\7x - 2y + 4z \\-6x + 3y + 2z\end{cases}</code></td></tr>
+</tbody></table>
+<h3 id="条件定义"><a class="header" href="#条件定义">条件定义</a></h3>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$f(n) =\begin{cases}n/2, &amp; \text{if }n\text{ is even} \3n+1, &amp; \text{if }n\text{ is odd}\end{cases}$</td><td align="center"><code>f(n) =\begin{cases}n/2, &amp; \text{if }n\text{ is even} \\3n+1, &amp; \text{if }n\text{ is odd}\end{cases}</code></td></tr>
+</tbody></table>
+<h3 id="多行等式"><a class="header" href="#多行等式">多行等式</a></h3>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\begin{align}f(x) &amp; = (a+b)^2\&amp; = a^2+2ab+b^2\end{align}$</td><td align="center"><code>\begin{align}f(x) &amp; = (a+b)^2\\&amp; = a^2+2ab+b^2\end{align}</code></td></tr>
+<tr><td align="center">$\begin{alignat}{2}f(x) &amp; = (a-b)^2 \&amp; = a^2-2ab+b^2\end{alignat}$</td><td align="center"><code>\begin{alignat}{2}f(x) &amp; = (a-b)^2 \\&amp; = a^2-2ab+b^2\end{alignat}</code></td></tr>
+<tr><td align="center">$\begin{array}{lcl}z &amp; = &amp; a \f(x,y,z) &amp; = &amp; x + y + z\end{array}$</td><td align="center"><code>\begin{array}{lcl}z &amp; = &amp; a \\f(x,y,z) &amp; = &amp; x + y + z\end{array}</code></td></tr>
+<tr><td align="center">$\begin{array}{lcr}z &amp; = &amp; a \f(x,y,z) &amp; = &amp; x + y + z\end{array}$</td><td align="center"><code>\begin{array}{lcr}z &amp; = &amp; a \\f(x,y,z) &amp; = &amp; x + y + z\end{array}</code></td></tr>
+</tbody></table>
+<h3 id="自动编号"><a class="header" href="#自动编号">自动编号</a></h3>
+<table><thead><tr><th align="center">描述</th><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">开启 AMS 扩展包的情况下，会在部分环境的多行公式后自动编号；</td><td align="center">$\begin{eqnarray}E = mc^2 \e^{i\pi}+1=0\end{eqnarray}$</td><td align="center"><code>\begin{eqnarray}E = mc^2 \\e^{i\pi}+1=0\end{eqnarray}</code></td></tr>
+<tr><td align="center">整个公式都不进行编号，可以使用<code>{equation*}</code>、<code>{eqnarray*}</code>环境；</td><td align="center">$\begin{eqnarray*}E = mc^2 \e^{i\pi}+1=0\end{eqnarray*}$</td><td align="center"><code>\begin{eqnarray*}E = mc^2 \\e^{i\pi}+1=0\end{eqnarray*}</code></td></tr>
+<tr><td align="center">单个方程不进行编号，可以在指定方程后面添加<code>\nonumber</code>命令；</td><td align="center">$\begin{eqnarray}E = mc^2 \e^{i\pi}+1=0 \nonumber\end{eqnarray}$</td><td align="center"><code>\begin{eqnarray}E = mc^2 \\e^{i\pi}+1=0 \nonumber\end{eqnarray}</code></td></tr>
+<tr><td align="center">个别公式出现或者不出现编号，可以在公式后使用<code>\tag{}</code>或者<code>\notag</code>命令；</td><td align="center">$\begin{eqnarray}E = mc^2 \notag\e^{i\pi}+1=0 \tag{b}\end{eqnarray}$</td><td align="center"><code>\begin{eqnarray}E = mc^2 \notag\\e^{i\pi}+1=0 \tag{b}\end{eqnarray}</code></td></tr>
+</tbody></table>
+<h2 id="括号"><a class="header" href="#括号">括号</a></h2>
+<p>常用的<code>()</code>、<code>[]</code>、<code>{}</code>括号符号可以在 LaTeX 环境当中直接进行使用，但是如果处于较大的符号当中，就应该配合<code>\left</code>和<code>\right</code>命令来使用：</p>
+<table><thead><tr><th align="left">类型</th><th align="center">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">圆括号、小括号</td><td align="center">$\left ( \frac{a}{b} \right )$</td><td align="left"><code>\left ( \frac{a}{b} \right )</code></td></tr>
+<tr><td align="left">方括号、中括号</td><td align="center">$\left [ \frac{a}{b} \right ], \left \lbrack \frac{a}{b} \right \rbrack$</td><td align="left"><code>\left [ \frac{a}{b} \right ]</code>, <code>\left \lbrack \frac{a}{b} \right \rbrack</code></td></tr>
+<tr><td align="left">花括号、大括号</td><td align="center">$\left { \frac{a}{b} \right }, \left \lbrace \frac{a}{b} \right \rbrace$</td><td align="left"><code>\left \{ \frac{a}{b} \right \}</code>, <code>\left \lbrace \frac{a}{b} \right \rbrace</code></td></tr>
+<tr><td align="left">角括号</td><td align="center">$\left \langle \frac{a}{b} \right \rangle$</td><td align="left"><code>\left \langle \frac{a}{b} \right \rangle</code></td></tr>
+<tr><td align="left">单竖线和双竖线</td><td align="center">$ ‖cd‖$</td><td align="left">ab| ‖cd‖</td></tr>
+<tr><td align="left">取整函数与取顶函数</td><td align="center">$\left \lfloor \frac{a}{b} \right \rfloor,\left \lceil \frac{c}{d} \right \rceil$</td><td align="left"><code>\left \lfloor \frac{a}{b} \right \rfloor</code> ,<code>\left \lceil \frac{c}{d} \right \rceil</code></td></tr>
+<tr><td align="left">斜线与反斜线</td><td align="center">$\left / \frac{a}{b} \right \backslash$</td><td align="left"><code>\left / \frac{a}{b} \right \backslash</code></td></tr>
+<tr><td align="left">上下箭头</td><td align="center">$\left \uparrow \frac{a}{b} \right \downarrow, \left \Uparrow \frac{a}{b} \right \Downarrow,\left \updownarrow \frac{a}{b} \right \Updownarrow$</td><td align="left"><code>\left \uparrow \frac{a}{b} \right \downarrow</code>, <code>\left \Uparrow \frac{a}{b} \right \Downarrow</code> ,<code>\left \updownarrow \frac{a}{b} \right \Updownarrow</code></td></tr>
+<tr><td align="left">混合括号</td><td align="center"></td><td align="left"></td></tr>
+<tr><td align="left">使用<code>\left.</code>和<code>\right.</code>不显示某侧的括号；</td><td align="center"></td><td align="left"></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>注意</strong>：在 Markdown 当中使用 LaTeX 时，为了避免语法冲突，花括号<code>{}</code>必须采用<code>\{</code>和<code>\}</code>进行转义，或者改用<code>\lbrace</code>和<code>\rbrace</code>的方式；如果是在 Markdown 表格当中使用 LaTeX，则必须采用 <code>\vert</code> 或者 <code>\Vert</code> 代替直接在公式当中书写 <code>|</code>和<code>||</code>。</p>
+</blockquote>
+<h3 id="括号尺寸"><a class="header" href="#括号尺寸">括号尺寸</a></h3>
+<table><thead><tr><th align="center">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$( \bigl( \Bigl( \biggl( \Biggl( \dots \Biggr] \biggr] \Bigr] \bigr] ]$</td><td align="left"><code>( \bigl( \Bigl( \biggl( \Biggl( \dots \Biggr] \biggr] \Bigr] \bigr] ]</code></td></tr>
+<tr><td align="center">${ \bigl { \Bigl { \biggl { \Biggl { \dots \Biggr\rangle \biggr\rangle \Bigr\rangle \bigr\rangle \rangle$</td><td align="left"><code>\{ \bigl \{ \Bigl \{ \biggl \{ \Biggl \{ \dots \Biggr\rangle \biggr\rangle \Bigr\rangle \bigr\rangle \rangle</code></td></tr>
+<tr><td align="center"></td><td align="left">||||…||||</td></tr>
+<tr><td align="center">$\lfloor \bigl\lfloor \Bigl\lfloor \biggl\lfloor \Biggl\lfloor \dots \Biggr\rceil \biggr\rceil \Bigr\rceil \bigr\rceil \rceil$</td><td align="left"><code>\lfloor \bigl\lfloor \Bigl\lfloor \biggl\lfloor \Biggl\lfloor \dots \Biggr\rceil \biggr\rceil \Bigr\rceil \bigr\rceil \rceil</code></td></tr>
+<tr><td align="center">$\uparrow \big\uparrow \Big\uparrow \bigg\uparrow \Bigg\uparrow \dots \Bigg\Downarrow \bigg\Downarrow \Big\Downarrow \big\Downarrow \Downarrow$</td><td align="left"><code>\uparrow \big\uparrow \Big\uparrow \bigg\uparrow \Bigg\uparrow \dots \Bigg\Downarrow \bigg\Downarrow \Big\Downarrow \big\Downarrow \Downarrow</code></td></tr>
+<tr><td align="center">$\updownarrow \big\updownarrow \Big\updownarrow \bigg\updownarrow \Bigg\updownarrow \dots \Bigg\Updownarrow \bigg\Updownarrow \Big\Updownarrow \big\Updownarrow \Updownarrow$</td><td align="left"><code>\updownarrow \big\updownarrow \Big\updownarrow \bigg\updownarrow \Bigg\updownarrow \dots \Bigg\Updownarrow \bigg\Updownarrow \Big\Updownarrow \big\Updownarrow \Updownarrow</code></td></tr>
+<tr><td align="center">$/ \big/ \Big/ \bigg/ \Bigg/ \dots \Bigg\backslash \bigg\backslash \Big\backslash \big\backslash \backslash$</td><td align="left"><code>/ \big/ \Big/ \bigg/ \Bigg/ \dots \Bigg\backslash \bigg\backslash \Big\backslash \big\backslash \backslash</code></td></tr>
+</tbody></table>
+<h2 id="空格与换行"><a class="header" href="#空格与换行">空格与换行</a></h2>
+<table><thead><tr><th align="left">序号</th><th align="left">符号</th><th>LaTeX</th></tr></thead><tbody>
+<tr><td align="left"><strong>双空格</strong></td><td align="left">$a \qquad b$</td><td><code>a \qquad b</code></td></tr>
+<tr><td align="left"><strong>单空格</strong></td><td align="left">$a \quad b$</td><td><code>a \quad b</code></td></tr>
+<tr><td align="left"><strong>字符空格</strong></td><td align="left">$a\ b$</td><td><code>a\ b</code></td></tr>
+<tr><td align="left"><strong>文本模式中的字符空格</strong></td><td align="left">$a \text{ } b$</td><td><code>a \text{ } b</code></td></tr>
+<tr><td align="left"><strong>大空格</strong></td><td align="left">$a;b$</td><td><code>a\;b</code></td></tr>
+<tr><td align="left"><strong>小空格</strong></td><td align="left">$a,b$</td><td><code>a\,b</code></td></tr>
+<tr><td align="left"><strong>极小空格</strong></td><td align="left">$ab$</td><td><code>ab</code></td></tr>
+<tr><td align="left"><strong>极小空格</strong>（用于区分语法）</td><td align="left">$a b$</td><td><code>a b</code></td></tr>
+<tr><td align="left"><strong>无空格</strong>（用于区分多字母变量）</td><td align="left">$\mathit{ab}$</td><td><code>\mathit{ab}</code></td></tr>
+</tbody></table>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\displaylines{y=1729x \ y=1729-x}$</td><td align="center"><code>\displaylines{y=1729x \\ y=1729-x}</code></td></tr>
+</tbody></table>
+<h2 id="颜色"><a class="header" href="#颜色">颜色</a></h2>
+<p>LaTeX 默认支持下面表格当中的文本颜色：</p>
+<p><img src="G:%5Cstudy%5C02-notebook%5CZhao-Mingbin.github.io%5Csrc%5CCFD%E5%AD%A6%E4%B9%A0%5CNS%E6%96%B9%E7%A8%8B%5Cmedia%5Ccolors.png" alt="img" /></p>
+<h3 id="字体颜色"><a class="header" href="#字体颜色">字体颜色</a></h3>
+<p>公式当中可以使用<code>\color{options}{math}</code>调用颜色命令，第 1 个参数为<strong>颜色</strong>，第 2 个参数为<strong>公式内容</strong>：</p>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">${\color{Blue}x^2}+{\color{Orange}2x}-{\color{LimeGreen}1}$</td><td align="center"><code>{\color{Blue}x^2}+{\color{Orange}2x}-{\color{LimeGreen}1}</code></td></tr>
+</tbody></table>
+<h3 id="背景颜色"><a class="header" href="#背景颜色">背景颜色</a></h3>
+<p>文本环境中可以使用<code>\colorbox{options}{text}</code>来调用背景颜色命令，第 1 个参数为<strong>颜色</strong>，第 2 个颜色为<strong>公式内容</strong>：</p>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\colorbox{yellow}{Thistext}$</td><td align="center"><code>\colorbox{yellow}{Thistext}</code></td></tr>
+</tbody></table>
+<p>该命令应用于数学环境当中时，需要在第 2 个参数加入<code>$\displaystyle + 公式$</code>：</p>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\colorbox{yellow}{$\displaystyle \frac{a}{b}$}$</td><td align="center"><code>\colorbox{yellow}{$\displaystyle \frac{a}{b}$}</code></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>注意</strong>：在 Markdown 内联 LaTeX 公式<code>$...$</code>当中使用<code>$\displaystyle + 公式$</code>语法时将会引发冲突，因此该语法仅用于多行公式 <code>$$...$$</code>。</p>
+</blockquote>
+<h3 id="rgb-颜色"><a class="header" href="#rgb-颜色">RGB 颜色</a></h3>
+<p>通过使用<code>\definecolor</code>命令可以自定义 LaTeX 公式的颜色：</p>
+<table><thead><tr><th align="center">符号</th><th align="center">LaTeX</th></tr></thead><tbody>
+<tr><td align="center">$\definecolor{mygreen}{RGB}{0,200,0} {\color{mygreen}e^{i \pi} + 1 = 0 }$</td><td align="center"><code>\definecolor{mygreen}{RGB}{0,200,0} {\color{mygreen}e^{i \pi} + 1 = 0 }</code></td></tr>
+</tbody></table>
+<h2 id="字体"><a class="header" href="#字体">字体</a></h2>
+<h3 id="字体加粗"><a class="header" href="#字体加粗">字体加粗</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\boldsymbol{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\boldsymbol{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\boldsymbol{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\boldsymbol{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\boldsymbol{0123456789}$</td><td align="left"><code>\boldsymbol{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="黑体"><a class="header" href="#黑体">黑体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathbf{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathbf{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathbf{0123456789}$</td><td align="left"><code>\mathbf{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="黑板报体"><a class="header" href="#黑板报体">黑板报体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathbb{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathbb{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathbb{0123456789}$</td><td align="left"><code>\mathbb{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="斜体"><a class="header" href="#斜体">斜体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathit{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathit{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathit{0123456789}$</td><td align="left"><code>\mathit{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="罗马体"><a class="header" href="#罗马体">罗马体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathrm{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathrm{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathrm{0123456789}$</td><td align="left"><code>\mathrm{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="无衬线体"><a class="header" href="#无衬线体">无衬线体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathsf{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathsf{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathsf{0123456789}$</td><td align="left"><code>\mathsf{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="手写体"><a class="header" href="#手写体">手写体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathcal{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathcal{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathcal{0123456789}$</td><td align="left"><code>\mathcal{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="哥特字体"><a class="header" href="#哥特字体">哥特字体</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</td><td align="left"><code>\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}</code></td></tr>
+<tr><td align="left">$\mathfrak{abcdefghijklmnopqrstuvwxyz}$</td><td align="left"><code>\mathfrak{abcdefghijklmnopqrstuvwxyz}</code></td></tr>
+<tr><td align="left">$\mathfrak{0123456789}$</td><td align="left"><code>\mathfrak{0123456789}</code></td></tr>
+</tbody></table>
+<h3 id="小脚本风格"><a class="header" href="#小脚本风格">小脚本风格</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">${\scriptstyle\text{ABCDEFGHIJKLMNOPQRSTUVWXYZ}}$</td><td align="left"><code>{\scriptstyle\text{ABCDEFGHIJKLMNOPQRSTUVWXYZ}}</code></td></tr>
+<tr><td align="left">${\scriptstyle\text{abcdefghijklmnopqrstuvwxyz}}$</td><td align="left"><code>{\scriptstyle\text{abcdefghijklmnopqrstuvwxyz}}</code></td></tr>
+<tr><td align="left">${\scriptstyle\text{0123456789}}$</td><td align="left"><code>{\scriptstyle\text{0123456789}}</code></td></tr>
+</tbody></table>
+<h3 id="字号尺寸"><a class="header" href="#字号尺寸">字号尺寸</a></h3>
+<table><thead><tr><th align="left">符号</th><th align="left">LaTeX</th></tr></thead><tbody>
+<tr><td align="left">${\tiny abc极小tiny}$</td><td align="left"><code>{\tiny abc极小tiny}</code></td></tr>
+<tr><td align="left">${\scriptsize abc 超小 scriptsize}$</td><td align="left"><code>{\scriptsize abc 超小 scriptsize}</code></td></tr>
+<tr><td align="left">${\small abc 小 small}$</td><td align="left"><code>{\small abc 小 small}</code></td></tr>
+<tr><td align="left">${\normalsize abc 正常 normal}$</td><td align="left"><code>{\normalsize abc 正常 normal}</code></td></tr>
+<tr><td align="left">${\large abc 大 large}$</td><td align="left"><code>{\large abc 大 large}</code></td></tr>
+<tr><td align="left">${\Large abc 超大 Large}$</td><td align="left"><code>{\Large abc 超大 Large}</code></td></tr>
+<tr><td align="left">${\LARGE abc 特大 LARGE}$</td><td align="left"><code>{\LARGE abc 特大 LARGE}</code></td></tr>
+<tr><td align="left">${\huge abc 巨大 huge}s$</td><td align="left"><code>{\huge abc 巨大 huge}s</code></td></tr>
+<tr><td align="left">${\Huge abc 巨无霸 Huge}$</td><td align="left"><code>{\Huge abc 巨无霸 Huge}</code></td></tr>
+</tbody></table>
+<pre><code class="language-python">#格式转化脚本
+def convert(text,*arg):
+    print('start******************************\n')
+    raw = text.split('\n')
+    #print(raw)
+    for i in range(2,len(raw)):
+        every = raw[i].split('|')
+        for num in arg:
+            #print(num)
+            format = every[num+1].strip()[1:-1] 
+            if format == '':
+                format = ' '
+                every[num] = f&quot;{format}&quot;
+            else:
+                every[num] = f&quot;${format}$&quot; #第一个参数
+        #print(every)#第二个参数
+        new_every=&quot;|&quot;.join(every)
+        raw[i] = new_every
+    new_raw = &quot;\n&quot;.join(raw)
+    return new_raw
+text2 = pp.paste()
+pp.copy(convert(text2,1))
+</code></pre>
+<p>@来源：<a href="https://uinika.gitee.io/Zen/LaTex/">通用 LaTeX 数学公式语法手册 | Bit by bit (gitee.io)</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../C++学习/C++进阶带目录.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../C++学习/C++进阶带目录.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
