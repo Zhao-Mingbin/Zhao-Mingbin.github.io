@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>01-C++基础</title>
+        <title>C++基础</title>
                 
 
         <!-- Custom HTML head -->
@@ -32,8 +32,6 @@
 
         <!-- Custom theme stylesheets -->
         
-                <!-- MathJax -->
-        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
             </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -84,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> 一、Homepage</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 二、shell 编程</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../shell/shell编程.html"><strong aria-hidden="true">2.1.</strong> 01-shell 编程</a></li><li class="chapter-item expanded "><a href="../shell/bash_shell编程实践.html"><strong aria-hidden="true">2.2.</strong> 02-bash shell编程实践</a></li><li class="chapter-item expanded "><a href="../shell/linux速查.html"><strong aria-hidden="true">2.3.</strong> 03- linux速查</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 三、C++学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../C++学习/C++基础带目录.html" class="active"><strong aria-hidden="true">3.1.</strong> 01-C++基础</a></li><li class="chapter-item expanded "><a href="../C++学习/C++进阶带目录.html"><strong aria-hidden="true">3.2.</strong> 02-C++进阶</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 四、CFD学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CFD学习/latex数学公式.html"><strong aria-hidden="true">4.1.</strong> 01-latex数学公式</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Homepage</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> shell 编程</div></li><li class="chapter-item expanded "><a href="../shell/shell编程.html"><strong aria-hidden="true">3.</strong> shell 编程</a></li><li class="chapter-item expanded "><a href="../shell/bash_shell编程实践.html"><strong aria-hidden="true">4.</strong> bash shell编程实践</a></li><li class="chapter-item expanded "><a href="../shell/linux速查.html"><strong aria-hidden="true">5.</strong> linux速查</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> C++学习</div></li><li class="chapter-item expanded "><a href="../C++学习/C++基础带目录.html" class="active"><strong aria-hidden="true">7.</strong> C++基础</a></li><li class="chapter-item expanded "><a href="../C++学习/C++进阶带目录.html"><strong aria-hidden="true">8.</strong> C++进阶</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> CFD学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CFD学习/latex数学公式.html"><strong aria-hidden="true">9.1.</strong> latex数学公式</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -145,8 +143,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<p><a name="index"><strong>Index</strong></a>
+                        <p><a name="index"><strong>Index</strong></a>
  <a href="#0">C++ 简介</a><br />
  <a href="#1">标准库</a><br />
  <a href="#2">C++ 环境设置</a><br />
@@ -315,7 +312,7 @@ int main()
 <p><strong>块</strong>是一组使用大括号括起来的按逻辑连接的语句</p>
 <h2 id="a-name6c-标识符aa-stylefloatrighttext-decorationnone-hrefindextopa"><a class="header" href="#a-name6c-标识符aa-stylefloatrighttext-decorationnone-hrefindextopa"><a name="6">C++ 标识符</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a></a></h2>
 <p>C++ 标识符是用来标识变量、函数、类、模块，或任何其他用户自定义项目的名称。一个标识符以字母 A-Z 或 a-z 或下划线 _ 开始，后跟零个或多个字母、下划线和数字（0-9）。</p>
-<p>C++ 标识符内不允许出现标点字符，比如 @、 和 %。C++ 是区分大小写的编程语言。因此，在 C++ 中，<strong>Manpower</strong> 和 <strong>manpower</strong> 是两个不同的标识符。</p>
+<p>C++ 标识符内不允许出现标点字符，比如 @、$ 和 %。C++ 是区分大小写的编程语言。因此，在 C++ 中，<strong>Manpower</strong> 和 <strong>manpower</strong> 是两个不同的标识符。</p>
 <pre><code class="language-c++">mohd       zara    abc   move_name  a_123
 myname50   _temp   j     a23b9      retVal
 </code></pre>
@@ -742,7 +739,7 @@ void write_extern(void)
 <p>在这里，第二个文件中的 <em>extern</em> 关键字用于声明已经在第一个文件 main.cpp 中定义的 count。现在 ，编译这两个文件，如下所示：</p>
 <blockquote>
 <p>联立编译</p>
-<p>g++ main.cpp support.cpp -o write</p>
+<p>$g++ main.cpp support.cpp -o write</p>
 <p>然后运行输出的write文件便可以输出</p>
 <p>Count is  5</p>
 </blockquote>
